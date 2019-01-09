@@ -1,7 +1,35 @@
 .nav-color{
-	 padding: 20px 40px !important;
+	 padding: 5px 40px !important;
     background-image: linear-gradient(to right,#052188,#1142af);
 }
 .foot-color{
+	position: absolute;
+	bottom: 0em;
+	padding: 5px;
 	 background-image: linear-gradient(to right,#052188,#1142af);
+}
+.top-left{
+	position: absolute;
+	top: 8em;
+	left: 30em;
+}
+.middle-left{
+	position: absolute;
+	top: 23em;
+	left: 30em;
+}
+.bottom-left{
+	position: absolute;
+	margin-top: 30em;
+	left: 30em;
+}
+.top-right{
+	position: absolute;
+    top: 10em;
+	right: 30em;
+}
+.middle-right{
+	position: absolute;
+	top: 30em;
+	right: 30em;
 }
