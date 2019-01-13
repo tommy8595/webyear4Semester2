@@ -19,44 +19,78 @@
     <link rel="stylesheet" href="css/StudentSubject.css">
 
 <body>
-    <header class="nav-color">
-        <!--top-->
-        <div class="navtop-underline">
-            <p style="color:#FFFFFF">023 880 880|rupp.cst@edu.com</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="img/logo1.png" alt="" height="90px" width="190px">
+        </a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Subject</a>             
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Schedule</a>             
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Score&Attendance</a>             
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Homework&Assignment</a>             
+            </li>
+          </ul>
         </div>
-        <!--bottom-->
-        <div>
-           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="#">Subjects</a></li>
-                          <li><a href="#">Score&Attendance</a></li>
-                          <li><a href="#">Schedule</a></li>
-                          <li><a href="#">Homework&Assignment</a></li>
-                        </li>
-                    </ul>
-                </div>
-          </nav>
-        </div>
-    </header>
+    </nav>
     <!--content-->
-    <div class="container">
-       
-        <button type = "button" name = "learn" value = "myimage">           
-           <img src="img/testsubject.jpeg"   width="170" height="170"/>
-           <p>OOAD</p>
-        </button>
-        <button type = "button" name = "learn" value = "myimage">
-           <img src="img/testsubject.jpeg"  width="170" height="170" />
-           <p>Web Development</p>
-        </button>
-   </div>
+    <div class="container-fluid">
+      <!--row1-->
+      <div class="row">
+        <div class="col-sm-3 mt-3 ml-5 content">
+            <div class="card">
+                <div class="float-left"><img class="card-img-top img-fluid" src="img/testsubject.jpeg" alt="Card image cap"></div>               
+                <div class="card-block">
+                    <h4 class="card-text">Object Oriented Analaysis and Design</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 mt-3 content">
+            <div class="card">
+                <img class="card-img-top img-fluid" src="img/testsubject.jpeg" alt="Card image cap">
+                <div class="card-block ">
+                    <h4 class="card-text">Web Application and development</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 mt-3 content">
+            <div class="card">
+                <img class="card-img-top img-fluid" src="img/testsubject.jpeg" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-text">Software Engineering and IT Project Management</h4>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!--row2-->
+      <div class="row">
+        <div class="col-sm-3 mt-3 mb-3 ml-5 content">
+            <div class="card">
+                <img class="card-img-top img-fluid" src="img/testsubject.jpeg" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-text">Linux System Administration</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 mt-3 mb-3 content">
+            <div class="card">
+                <img class="card-img-top img-fluid" src="img/testsubject.jpeg" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-text">Management Information System</h4>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--footer-->
     <footer class="page-footer font-small cyan darken-3 special-color-dark ">
     <center>
         <div class="container">
