@@ -107,3 +107,36 @@ footer.page-footer .footer-copyright {
     margin: 0px auto;
     padding: 5% 0px;
 }
+.SubjectBackground{
+    background-color: #4879B0;
+    padding: 10px;
+    border-radius: 5px;
+}
+.containerMargin{
+    margin: 10px 0px;
+}
+.box{
+    position: absolute;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: blue;
+    border-radius: 4px;
+    display: flex;
+    max-width: 21rem;
+    max-height: 8rem;
+
+}
+.menu{
+    text-decoration-line: underline;
+}
+.logout
+{
+    background-color: #00FF00;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+}
