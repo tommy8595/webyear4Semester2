@@ -112,6 +112,15 @@ footer.page-footer .footer-copyright {
     background-color: #4879B0;
     padding: 10px;
     border-radius: 5px;
+
+}
+@media only screen and (max-width: 600px) {
+  .SubjectBackground {
+    background-color: #4879B0;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px;
+  }
 }
 .containerMargin{
     margin: 10px 0px;
