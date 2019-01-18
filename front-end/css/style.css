@@ -97,6 +97,7 @@ footer.page-footer .footer-copyright {
 }
 .titleDetail{
     padding-top: 20px;
+    padding-left: 30px;
 }
 .backgroundContact{
     background-color: #4879B0;
@@ -151,4 +152,7 @@ footer.page-footer .footer-copyright {
 .iframeResponsive{
     width:  100% !important;
     height: 250px;
+}
+.descDetail{
+    padding: 0px 30px;
 }
