@@ -97,6 +97,7 @@ footer.page-footer .footer-copyright {
 }
 .titleDetail{
     padding-top: 20px;
+    padding-left: 30px;
 }
 .backgroundContact{
     background-color: #4879B0;
@@ -111,6 +112,15 @@ footer.page-footer .footer-copyright {
     background-color: #4879B0;
     padding: 10px;
     border-radius: 5px;
+
+}
+@media only screen and (max-width: 600px) {
+  .SubjectBackground {
+    background-color: #4879B0;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px;
+  }
 }
 .containerMargin{
     margin: 10px 0px;
@@ -139,4 +149,126 @@ footer.page-footer .footer-copyright {
     display: inline-block;
     font-size: 16px;
     border-radius: 5px;
+}
+.img-border-radius{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+.subDetailContent{
+    margin: 35px 0px;
+}
+.iframeResponsive{
+    width:  100% !important;
+    height: 250px;
+}
+.descDetail{
+    padding: 0px 30px;
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: rgb(255, 255, 255);
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.5);
+}
+.loginLogo{
+    height:300px;
+    width: 700px
+}
+.scoreBack{
+    background-color: #1a5d98;
+    padding: 20px 0px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    margin: 20px 0px;
+}
+@media only screen and (max-width: 1200px) {  }
+
+@media only screen and (max-width: 992px) { 
+    .containerContact{
+        width: 70% !important;
+    }
+ }
+
+ @media only screen and (max-width: 768px) { 
+    .embed-responsive-item{
+        margin-top: 30px;
+    }
+    .imageCenter{
+        text-align: center;
+        padding: 20px;
+    }
+    .teacherContent{
+        background-color: #e0d9d9;
+        padding: 20px 0px;
+        border-radius: 5px;
+        margin: 20px 0px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    }
+    /* .loginLogo{
+        height:250px;
+        width: 500px
+    } */
+    .containerContact{
+        width: 70% !important;
+    }
+    .backImage{
+        display: none;
+    }
+    
+ }
+
+
+@media only screen and (max-width: 575.98px) { 
+    .loginLogo{
+        height:100px;
+        width: 200px
+    }
+    .containerContact{
+        width: 100% !important;
+    }
+    
+    .subDetailContent{
+        padding: 20px !important;
+    }
+    .imageCenter{
+        text-align: center;
+        padding: 20px;
+    }
+    .embed-responsive-item{
+        margin-top: 30px;
+    }
+    .teacherContent{
+        background-color: #e0d9d9;
+        padding: 20px 0px;
+        border-radius: 5px;
+        margin: 20px 0px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    }
+    .scoreBack{
+        background-color: #1a5d98;
+        padding: 20px 0px;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: bold;
+        width: 100%;
+        margin: 20px 0px;
+        font-size: 13px;
+    }
+ }
+
+.home_ass_box{
+    background-color: #4879B0;
+    padding: 10px;
+    border-radius: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .home_ass_box {
+    background-color: #4879B0;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px;
+  }
 }
