@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="web_projectModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_attandance">
+          <Key>
+            <PropertyRef Name="sub_id" />
+            <PropertyRef Name="stu_id" />
+          </Key>
+          <Property Name="sub_id" Type="int" Nullable="false" />
+          <Property Name="stu_id" Type="int" Nullable="false" />
+          <Property Name="tea_id" Type="int" Nullable="false" />
+          <Property Name="att_date" Type="date" />
+          <Property Name="att_type" Type="nvarchar" MaxLength="30" />
+          <Property Name="att_description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_class">
+          <Key>
+            <PropertyRef Name="class_id" />
+          </Key>
+          <Property Name="class_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="class_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="class_department" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_homework">
+          <Key>
+            <PropertyRef Name="hom_id" />
+          </Key>
+          <Property Name="hom_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hom_description" Type="nvarchar(max)" />
+          <Property Name="hom_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="sub_id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'web_project.dbo.tbl_homework_detail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_homework_detail">
+          <Key>
+            <PropertyRef Name="hom_id" />
+            <PropertyRef Name="stu_id" />
+            <PropertyRef Name="point" />
+          </Key>
+          <Property Name="hom_id" Type="int" Nullable="false" />
+          <Property Name="stu_id" Type="int" Nullable="false" />
+          <Property Name="point" Type="float" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_lesson">
+          <Key>
+            <PropertyRef Name="sub_id" />
+            <PropertyRef Name="tea_id" />
+          </Key>
+          <Property Name="sub_id" Type="int" Nullable="false" />
+          <Property Name="tea_id" Type="int" Nullable="false" />
+          <Property Name="les_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="les_desc" Type="nvarchar(max)" />
+          <Property Name="les_chapter" Type="nvarchar" MaxLength="50" />
+          <Property Name="les_file_path" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_schdedule">
+          <Key>
+            <PropertyRef Name="sub_id" />
+            <PropertyRef Name="class_id" />
+          </Key>
+          <Property Name="sub_id" Type="int" Nullable="false" />
+          <Property Name="class_id" Type="int" Nullable="false" />
+          <Property Name="tea_id" Type="int" Nullable="false" />
+          <Property Name="sch_time" Type="time" Precision="7" />
+          <Property Name="sch_day" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'web_project.dbo.tbl_score' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_score">
+          <Key>
+            <PropertyRef Name="stu_id" />
+            <PropertyRef Name="tea_id" />
+            <PropertyRef Name="attandance" />
+            <PropertyRef Name="homework" />
+            <PropertyRef Name="assignment" />
+            <PropertyRef Name="final_exam" />
+          </Key>
+          <Property Name="stu_id" Type="int" Nullable="false" />
+          <Property Name="tea_id" Type="int" Nullable="false" />
+          <Property Name="stu_name" Type="nvarchar(max)" />
+          <Property Name="attandance" Type="float" Nullable="false" />
+          <Property Name="homework" Type="float" Nullable="false" />
+          <Property Name="assignment" Type="float" Nullable="false" />
+          <Property Name="final_exam" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_student">
+          <Key>
+            <PropertyRef Name="stu_id" />
+          </Key>
+          <Property Name="stu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stu_name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="stu_sex" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="stu_dob" Type="date" Nullable="false" />
+          <Property Name="stu_pob" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="stu_address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="stu_phone" Type="nvarchar" MaxLength="13" />
+          <Property Name="stu_email" Type="nvarchar(max)" />
+          <Property Name="stu_emergency_number" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="class_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_subject">
+          <Key>
+            <PropertyRef Name="sub_id" />
+          </Key>
+          <Property Name="sub_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sub_name" Type="nvarchar(max)" />
+          <Property Name="sub_description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_teacher">
+          <Key>
+            <PropertyRef Name="tea_id" />
+          </Key>
+          <Property Name="tea_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tea_email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="tea_name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="tea_gender" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="tea_dob" Type="date" Nullable="false" />
+          <Property Name="tea_pob" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="tea_address" Type="nvarchar(max)" />
+          <Property Name="tea_phone" Type="nvarchar" MaxLength="13" />
+        </EntityType>
+        <EntityType Name="tbl_user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_email" Type="nvarchar" MaxLength="100" />
+          <Property Name="user_psw" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__tbl_attan__stu_i__75A278F5">
+          <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_attandance" Type="Self.tbl_attandance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="tbl_attandance">
+              <PropertyRef Name="stu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_attan__sub_i__74AE54BC">
+          <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_attandance" Type="Self.tbl_attandance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_subject">
+              <PropertyRef Name="sub_id" />
+            </Principal>
+            <Dependent Role="tbl_attandance">
+              <PropertyRef Name="sub_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_attan__tea_i__76969D2E">
+          <End Role="tbl_teacher" Type="Self.tbl_teacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_attandance" Type="Self.tbl_attandance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_teacher">
+              <PropertyRef Name="tea_id" />
+            </Principal>
+            <Dependent Role="tbl_attandance">
+              <PropertyRef Name="tea_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_homew__hom_i__46E78A0C">
+          <End Role="tbl_homework" Type="Self.tbl_homework" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_homework_detail" Type="Self.tbl_homework_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_homework">
+              <PropertyRef Name="hom_id" />
+            </Principal>
+            <Dependent Role="tbl_homework_detail">
+              <PropertyRef Name="hom_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_homew__stu_i__47DBAE45">
+          <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_homework_detail" Type="Self.tbl_homework_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="tbl_homework_detail">
+              <PropertyRef Name="stu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_homew__sub_i__22AA2996">
+          <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_homework" Type="Self.tbl_homework" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_subject">
+              <PropertyRef Name="sub_id" />
+            </Principal>
+            <Dependent Role="tbl_homework">
+              <PropertyRef Name="sub_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_lesso__sub_i__1A14E395">
+          <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_lesson" Type="Self.tbl_lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_subject">
+              <PropertyRef Name="sub_id" />
+            </Principal>
+            <Dependent Role="tbl_lesson">
+              <PropertyRef Name="sub_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_lesso__tea_i__1B0907CE">
+          <End Role="tbl_teacher" Type="Self.tbl_teacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_lesson" Type="Self.tbl_lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_teacher">
+              <PropertyRef Name="tea_id" />
+            </Principal>
+            <Dependent Role="tbl_lesson">
+              <PropertyRef Name="tea_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_schde__class__70DDC3D8">
+          <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_schdedule" Type="Self.tbl_schdedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_class">
+              <PropertyRef Name="class_id" />
+            </Principal>
+            <Dependent Role="tbl_schdedule">
+              <PropertyRef Name="class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_schde__sub_i__6FE99F9F">
+          <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_schdedule" Type="Self.tbl_schdedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_subject">
+              <PropertyRef Name="sub_id" />
+            </Principal>
+            <Dependent Role="tbl_schdedule">
+              <PropertyRef Name="sub_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_schde__tea_i__71D1E811">
+          <End Role="tbl_teacher" Type="Self.tbl_teacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_schdedule" Type="Self.tbl_schdedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_teacher">
+              <PropertyRef Name="tea_id" />
+            </Principal>
+            <Dependent Role="tbl_schdedule">
+              <PropertyRef Name="tea_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_score__stu_i__787EE5A0">
+          <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_score" Type="Self.tbl_score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="tbl_score">
+              <PropertyRef Name="stu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_score__tea_i__797309D9">
+          <End Role="tbl_teacher" Type="Self.tbl_teacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_score" Type="Self.tbl_score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_teacher">
+              <PropertyRef Name="tea_id" />
+            </Principal>
+            <Dependent Role="tbl_score">
+              <PropertyRef Name="tea_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_stude__class__3B75D760">
+          <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_class">
+              <PropertyRef Name="class_id" />
+            </Principal>
+            <Dependent Role="tbl_student">
+              <PropertyRef Name="class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="web_projectModel1StoreContainer">
+          <EntitySet Name="tbl_attandance" EntityType="Self.tbl_attandance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_class" EntityType="Self.tbl_class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_homework" EntityType="Self.tbl_homework" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_lesson" EntityType="Self.tbl_lesson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_schdedule" EntityType="Self.tbl_schdedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_student" EntityType="Self.tbl_student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_subject" EntityType="Self.tbl_subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_teacher" EntityType="Self.tbl_teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_homework_detail" EntityType="Self.tbl_homework_detail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_homework_detail].[hom_id] AS [hom_id], 
+    [tbl_homework_detail].[stu_id] AS [stu_id], 
+    [tbl_homework_detail].[point] AS [point], 
+    [tbl_homework_detail].[description] AS [description]
+    FROM [dbo].[tbl_homework_detail] AS [tbl_homework_detail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_score" EntityType="Self.tbl_score" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_score].[stu_id] AS [stu_id], 
+    [tbl_score].[tea_id] AS [tea_id], 
+    [tbl_score].[stu_name] AS [stu_name], 
+    [tbl_score].[attandance] AS [attandance], 
+    [tbl_score].[homework] AS [homework], 
+    [tbl_score].[assignment] AS [assignment], 
+    [tbl_score].[final_exam] AS [final_exam]
+    FROM [dbo].[tbl_score] AS [tbl_score]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__tbl_attan__stu_i__75A278F5" Association="Self.FK__tbl_attan__stu_i__75A278F5">
+            <End Role="tbl_student" EntitySet="tbl_student" />
+            <End Role="tbl_attandance" EntitySet="tbl_attandance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_attan__sub_i__74AE54BC" Association="Self.FK__tbl_attan__sub_i__74AE54BC">
+            <End Role="tbl_subject" EntitySet="tbl_subject" />
+            <End Role="tbl_attandance" EntitySet="tbl_attandance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_attan__tea_i__76969D2E" Association="Self.FK__tbl_attan__tea_i__76969D2E">
+            <End Role="tbl_teacher" EntitySet="tbl_teacher" />
+            <End Role="tbl_attandance" EntitySet="tbl_attandance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_homew__hom_i__46E78A0C" Association="Self.FK__tbl_homew__hom_i__46E78A0C">
+            <End Role="tbl_homework" EntitySet="tbl_homework" />
+            <End Role="tbl_homework_detail" EntitySet="tbl_homework_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_homew__stu_i__47DBAE45" Association="Self.FK__tbl_homew__stu_i__47DBAE45">
+            <End Role="tbl_student" EntitySet="tbl_student" />
+            <End Role="tbl_homework_detail" EntitySet="tbl_homework_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_homew__sub_i__22AA2996" Association="Self.FK__tbl_homew__sub_i__22AA2996">
+            <End Role="tbl_subject" EntitySet="tbl_subject" />
+            <End Role="tbl_homework" EntitySet="tbl_homework" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_lesso__sub_i__1A14E395" Association="Self.FK__tbl_lesso__sub_i__1A14E395">
+            <End Role="tbl_subject" EntitySet="tbl_subject" />
+            <End Role="tbl_lesson" EntitySet="tbl_lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_lesso__tea_i__1B0907CE" Association="Self.FK__tbl_lesso__tea_i__1B0907CE">
+            <End Role="tbl_teacher" EntitySet="tbl_teacher" />
+            <End Role="tbl_lesson" EntitySet="tbl_lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_schde__class__70DDC3D8" Association="Self.FK__tbl_schde__class__70DDC3D8">
+            <End Role="tbl_class" EntitySet="tbl_class" />
+            <End Role="tbl_schdedule" EntitySet="tbl_schdedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_schde__sub_i__6FE99F9F" Association="Self.FK__tbl_schde__sub_i__6FE99F9F">
+            <End Role="tbl_subject" EntitySet="tbl_subject" />
+            <End Role="tbl_schdedule" EntitySet="tbl_schdedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_schde__tea_i__71D1E811" Association="Self.FK__tbl_schde__tea_i__71D1E811">
+            <End Role="tbl_teacher" EntitySet="tbl_teacher" />
+            <End Role="tbl_schdedule" EntitySet="tbl_schdedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_score__stu_i__787EE5A0" Association="Self.FK__tbl_score__stu_i__787EE5A0">
+            <End Role="tbl_student" EntitySet="tbl_student" />
+            <End Role="tbl_score" EntitySet="tbl_score" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_score__tea_i__797309D9" Association="Self.FK__tbl_score__tea_i__797309D9">
+            <End Role="tbl_teacher" EntitySet="tbl_teacher" />
+            <End Role="tbl_score" EntitySet="tbl_score" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_stude__class__3B75D760" Association="Self.FK__tbl_stude__class__3B75D760">
+            <End Role="tbl_class" EntitySet="tbl_class" />
+            <End Role="tbl_student" EntitySet="tbl_student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="web_projectModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_attandance">
+          <Key>
+            <PropertyRef Name="sub_id" />
+            <PropertyRef Name="stu_id" />
+          </Key>
+          <Property Name="sub_id" Type="Int32" Nullable="false" />
+          <Property Name="stu_id" Type="Int32" Nullable="false" />
+          <Property Name="tea_id" Type="Int32" Nullable="false" />
+          <Property Name="att_date" Type="DateTime" Precision="0" />
+          <Property Name="att_type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="att_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_student" Relationship="Self.FK__tbl_attan__stu_i__75A278F5" FromRole="tbl_attandance" ToRole="tbl_student" />
+          <NavigationProperty Name="tbl_subject" Relationship="Self.FK__tbl_attan__sub_i__74AE54BC" FromRole="tbl_attandance" ToRole="tbl_subject" />
+          <NavigationProperty Name="tbl_teacher" Relationship="Self.FK__tbl_attan__tea_i__76969D2E" FromRole="tbl_attandance" ToRole="tbl_teacher" />
+        </EntityType>
+        <EntityType Name="tbl_class">
+          <Key>
+            <PropertyRef Name="class_id" />
+          </Key>
+          <Property Name="class_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="class_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="class_department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_schdedule" Relationship="Self.FK__tbl_schde__class__70DDC3D8" FromRole="tbl_class" ToRole="tbl_schdedule" />
+          <NavigationProperty Name="tbl_student" Relationship="Self.FK__tbl_stude__class__3B75D760" FromRole="tbl_class" ToRole="tbl_student" />
+        </EntityType>
+        <EntityType Name="tbl_homework">
+          <Key>
+            <PropertyRef Name="hom_id" />
+          </Key>
+          <Property Name="hom_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hom_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hom_type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="sub_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_homework_detail" Relationship="Self.FK__tbl_homew__hom_i__46E78A0C" FromRole="tbl_homework" ToRole="tbl_homework_detail" />
+          <NavigationProperty Name="tbl_subject" Relationship="Self.FK__tbl_homew__sub_i__22AA2996" FromRole="tbl_homework" ToRole="tbl_subject" />
+        </EntityType>
+        <EntityType Name="tbl_lesson">
+          <Key>
+            <PropertyRef Name="sub_id" />
+            <PropertyRef Name="tea_id" />
+          </Key>
+          <Property Name="sub_id" Type="Int32" Nullable="false" />
+          <Property Name="tea_id" Type="Int32" Nullable="false" />
+          <Property Name="les_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="les_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="les_chapter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="les_file_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_subject" Relationship="Self.FK__tbl_lesso__sub_i__1A14E395" FromRole="tbl_lesson" ToRole="tbl_subject" />
+          <NavigationProperty Name="tbl_teacher" Relationship="Self.FK__tbl_lesso__tea_i__1B0907CE" FromRole="tbl_lesson" ToRole="tbl_teacher" />
+        </EntityType>
+        <EntityType Name="tbl_schdedule">
+          <Key>
+            <PropertyRef Name="sub_id" />
+            <PropertyRef Name="class_id" />
+          </Key>
+          <Property Name="sub_id" Type="Int32" Nullable="false" />
+          <Property Name="class_id" Type="Int32" Nullable="false" />
+          <Property Name="tea_id" Type="Int32" Nullable="false" />
+          <Property Name="sch_time" Type="Time" Precision="7" />
+          <Property Name="sch_day" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_class" Relationship="Self.FK__tbl_schde__class__70DDC3D8" FromRole="tbl_schdedule" ToRole="tbl_class" />
+          <NavigationProperty Name="tbl_subject" Relationship="Self.FK__tbl_schde__sub_i__6FE99F9F" FromRole="tbl_schdedule" ToRole="tbl_subject" />
+          <NavigationProperty Name="tbl_teacher" Relationship="Self.FK__tbl_schde__tea_i__71D1E811" FromRole="tbl_schdedule" ToRole="tbl_teacher" />
+        </EntityType>
+        <EntityType Name="tbl_student">
+          <Key>
+            <PropertyRef Name="stu_id" />
+          </Key>
+          <Property Name="stu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stu_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stu_sex" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="stu_dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="stu_pob" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stu_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stu_phone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="stu_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="stu_emergency_number" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="class_id" Type="Int32" />
+          <NavigationProperty Name="tbl_attandance" Relationship="Self.FK__tbl_attan__stu_i__75A278F5" FromRole="tbl_student" ToRole="tbl_attandance" />
+          <NavigationProperty Name="tbl_class" Relationship="Self.FK__tbl_stude__class__3B75D760" FromRole="tbl_student" ToRole="tbl_class" />
+          <NavigationProperty Name="tbl_homework_detail" Relationship="Self.FK__tbl_homew__stu_i__47DBAE45" FromRole="tbl_student" ToRole="tbl_homework_detail" />
+          <NavigationProperty Name="tbl_score" Relationship="Self.FK__tbl_score__stu_i__787EE5A0" FromRole="tbl_student" ToRole="tbl_score" />
+        </EntityType>
+        <EntityType Name="tbl_subject">
+          <Key>
+            <PropertyRef Name="sub_id" />
+          </Key>
+          <Property Name="sub_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sub_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sub_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_attandance" Relationship="Self.FK__tbl_attan__sub_i__74AE54BC" FromRole="tbl_subject" ToRole="tbl_attandance" />
+          <NavigationProperty Name="tbl_homework" Relationship="Self.FK__tbl_homew__sub_i__22AA2996" FromRole="tbl_subject" ToRole="tbl_homework" />
+          <NavigationProperty Name="tbl_lesson" Relationship="Self.FK__tbl_lesso__sub_i__1A14E395" FromRole="tbl_subject" ToRole="tbl_lesson" />
+          <NavigationProperty Name="tbl_schdedule" Relationship="Self.FK__tbl_schde__sub_i__6FE99F9F" FromRole="tbl_subject" ToRole="tbl_schdedule" />
+        </EntityType>
+        <EntityType Name="tbl_teacher">
+          <Key>
+            <PropertyRef Name="tea_id" />
+          </Key>
+          <Property Name="tea_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tea_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tea_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tea_gender" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="tea_dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="tea_pob" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tea_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tea_phone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_attandance" Relationship="Self.FK__tbl_attan__tea_i__76969D2E" FromRole="tbl_teacher" ToRole="tbl_attandance" />
+          <NavigationProperty Name="tbl_lesson" Relationship="Self.FK__tbl_lesso__tea_i__1B0907CE" FromRole="tbl_teacher" ToRole="tbl_lesson" />
+          <NavigationProperty Name="tbl_schdedule" Relationship="Self.FK__tbl_schde__tea_i__71D1E811" FromRole="tbl_teacher" ToRole="tbl_schdedule" />
+          <NavigationProperty Name="tbl_score" Relationship="Self.FK__tbl_score__tea_i__797309D9" FromRole="tbl_teacher" ToRole="tbl_score" />
+        </EntityType>
+        <EntityType Name="tbl_user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="user_psw" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_homework_detail">
+          <Key>
+            <PropertyRef Name="hom_id" />
+            <PropertyRef Name="stu_id" />
+            <PropertyRef Name="point" />
+          </Key>
+          <Property Name="hom_id" Type="Int32" Nullable="false" />
+          <Property Name="stu_id" Type="Int32" Nullable="false" />
+          <Property Name="point" Type="Double" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_homework" Relationship="Self.FK__tbl_homew__hom_i__46E78A0C" FromRole="tbl_homework_detail" ToRole="tbl_homework" />
+          <NavigationProperty Name="tbl_student" Relationship="Self.FK__tbl_homew__stu_i__47DBAE45" FromRole="tbl_homework_detail" ToRole="tbl_student" />
+        </EntityType>
+        <EntityType Name="tbl_score">
+          <Key>
+            <PropertyRef Name="stu_id" />
+            <PropertyRef Name="tea_id" />
+            <PropertyRef Name="attandance" />
+            <PropertyRef Name="homework" />
+            <PropertyRef Name="assignment" />
+            <PropertyRef Name="final_exam" />
+          </Key>
+          <Property Name="stu_id" Type="Int32" Nullable="false" />
+          <Property Name="tea_id" Type="Int32" Nullable="false" />
+          <Property Name="stu_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="attandance" Type="Double" Nullable="false" />
+          <Property Name="homework" Type="Double" Nullable="false" />
+          <Property Name="assignment" Type="Double" Nullable="false" />
+          <Property Name="final_exam" Type="Double" Nullable="false" />
+          <NavigationProperty Name="tbl_student" Relationship="Self.FK__tbl_score__stu_i__787EE5A0" FromRole="tbl_score" ToRole="tbl_student" />
+          <NavigationProperty Name="tbl_teacher" Relationship="Self.FK__tbl_score__tea_i__797309D9" FromRole="tbl_score" ToRole="tbl_teacher" />
+        </EntityType>
+        <Association Name="FK__tbl_attan__stu_i__75A278F5">
+          <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_attandance" Type="Self.tbl_attandance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="tbl_attandance">
+              <PropertyRef Name="stu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_attan__sub_i__74AE54BC">
+          <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_attandance" Type="Self.tbl_attandance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_subject">
+              <PropertyRef Name="sub_id" />
+            </Principal>
+            <Dependent Role="tbl_attandance">
+              <PropertyRef Name="sub_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_attan__tea_i__76969D2E">
+          <End Role="tbl_teacher" Type="Self.tbl_teacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_attandance" Type="Self.tbl_attandance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_teacher">
+              <PropertyRef Name="tea_id" />
+            </Principal>
+            <Dependent Role="tbl_attandance">
+              <PropertyRef Name="tea_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_schde__class__70DDC3D8">
+          <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_schdedule" Type="Self.tbl_schdedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_class">
+              <PropertyRef Name="class_id" />
+            </Principal>
+            <Dependent Role="tbl_schdedule">
+              <PropertyRef Name="class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_stude__class__3B75D760">
+          <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_class">
+              <PropertyRef Name="class_id" />
+            </Principal>
+            <Dependent Role="tbl_student">
+              <PropertyRef Name="class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_homew__hom_i__46E78A0C">
+          <End Role="tbl_homework" Type="Self.tbl_homework" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_homework_detail" Type="Self.tbl_homework_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_homework">
+              <PropertyRef Name="hom_id" />
+            </Principal>
+            <Dependent Role="tbl_homework_detail">
+              <PropertyRef Name="hom_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_homew__sub_i__22AA2996">
+          <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_homework" Type="Self.tbl_homework" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_subject">
+              <PropertyRef Name="sub_id" />
+            </Principal>
+            <Dependent Role="tbl_homework">
+              <PropertyRef Name="sub_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_lesso__sub_i__1A14E395">
+          <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_lesson" Type="Self.tbl_lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_subject">
+              <PropertyRef Name="sub_id" />
+            </Principal>
+            <Dependent Role="tbl_lesson">
+              <PropertyRef Name="sub_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_lesso__tea_i__1B0907CE">
+          <End Role="tbl_teacher" Type="Self.tbl_teacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_lesson" Type="Self.tbl_lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_teacher">
+              <PropertyRef Name="tea_id" />
+            </Principal>
+            <Dependent Role="tbl_lesson">
+              <PropertyRef Name="tea_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_schde__sub_i__6FE99F9F">
+          <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_schdedule" Type="Self.tbl_schdedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_subject">
+              <PropertyRef Name="sub_id" />
+            </Principal>
+            <Dependent Role="tbl_schdedule">
+              <PropertyRef Name="sub_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_schde__tea_i__71D1E811">
+          <End Role="tbl_teacher" Type="Self.tbl_teacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_schdedule" Type="Self.tbl_schdedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_teacher">
+              <PropertyRef Name="tea_id" />
+            </Principal>
+            <Dependent Role="tbl_schdedule">
+              <PropertyRef Name="tea_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_homew__stu_i__47DBAE45">
+          <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_homework_detail" Type="Self.tbl_homework_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="tbl_homework_detail">
+              <PropertyRef Name="stu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_score__stu_i__787EE5A0">
+          <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_score" Type="Self.tbl_score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="tbl_score">
+              <PropertyRef Name="stu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_score__tea_i__797309D9">
+          <End Role="tbl_teacher" Type="Self.tbl_teacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_score" Type="Self.tbl_score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_teacher">
+              <PropertyRef Name="tea_id" />
+            </Principal>
+            <Dependent Role="tbl_score">
+              <PropertyRef Name="tea_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="web_projectEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_attandance" EntityType="Self.tbl_attandance" />
+          <EntitySet Name="tbl_class" EntityType="Self.tbl_class" />
+          <EntitySet Name="tbl_homework" EntityType="Self.tbl_homework" />
+          <EntitySet Name="tbl_lesson" EntityType="Self.tbl_lesson" />
+          <EntitySet Name="tbl_schdedule" EntityType="Self.tbl_schdedule" />
+          <EntitySet Name="tbl_student" EntityType="Self.tbl_student" />
+          <EntitySet Name="tbl_subject" EntityType="Self.tbl_subject" />
+          <EntitySet Name="tbl_teacher" EntityType="Self.tbl_teacher" />
+          <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
+          <EntitySet Name="tbl_homework_detail" EntityType="Self.tbl_homework_detail" />
+          <EntitySet Name="tbl_score" EntityType="Self.tbl_score" />
+          <AssociationSet Name="FK__tbl_attan__stu_i__75A278F5" Association="Self.FK__tbl_attan__stu_i__75A278F5">
+            <End Role="tbl_student" EntitySet="tbl_student" />
+            <End Role="tbl_attandance" EntitySet="tbl_attandance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_attan__sub_i__74AE54BC" Association="Self.FK__tbl_attan__sub_i__74AE54BC">
+            <End Role="tbl_subject" EntitySet="tbl_subject" />
+            <End Role="tbl_attandance" EntitySet="tbl_attandance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_attan__tea_i__76969D2E" Association="Self.FK__tbl_attan__tea_i__76969D2E">
+            <End Role="tbl_teacher" EntitySet="tbl_teacher" />
+            <End Role="tbl_attandance" EntitySet="tbl_attandance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_schde__class__70DDC3D8" Association="Self.FK__tbl_schde__class__70DDC3D8">
+            <End Role="tbl_class" EntitySet="tbl_class" />
+            <End Role="tbl_schdedule" EntitySet="tbl_schdedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_stude__class__3B75D760" Association="Self.FK__tbl_stude__class__3B75D760">
+            <End Role="tbl_class" EntitySet="tbl_class" />
+            <End Role="tbl_student" EntitySet="tbl_student" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_homew__hom_i__46E78A0C" Association="Self.FK__tbl_homew__hom_i__46E78A0C">
+            <End Role="tbl_homework" EntitySet="tbl_homework" />
+            <End Role="tbl_homework_detail" EntitySet="tbl_homework_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_homew__sub_i__22AA2996" Association="Self.FK__tbl_homew__sub_i__22AA2996">
+            <End Role="tbl_subject" EntitySet="tbl_subject" />
+            <End Role="tbl_homework" EntitySet="tbl_homework" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_lesso__sub_i__1A14E395" Association="Self.FK__tbl_lesso__sub_i__1A14E395">
+            <End Role="tbl_subject" EntitySet="tbl_subject" />
+            <End Role="tbl_lesson" EntitySet="tbl_lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_lesso__tea_i__1B0907CE" Association="Self.FK__tbl_lesso__tea_i__1B0907CE">
+            <End Role="tbl_teacher" EntitySet="tbl_teacher" />
+            <End Role="tbl_lesson" EntitySet="tbl_lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_schde__sub_i__6FE99F9F" Association="Self.FK__tbl_schde__sub_i__6FE99F9F">
+            <End Role="tbl_subject" EntitySet="tbl_subject" />
+            <End Role="tbl_schdedule" EntitySet="tbl_schdedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_schde__tea_i__71D1E811" Association="Self.FK__tbl_schde__tea_i__71D1E811">
+            <End Role="tbl_teacher" EntitySet="tbl_teacher" />
+            <End Role="tbl_schdedule" EntitySet="tbl_schdedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_homew__stu_i__47DBAE45" Association="Self.FK__tbl_homew__stu_i__47DBAE45">
+            <End Role="tbl_student" EntitySet="tbl_student" />
+            <End Role="tbl_homework_detail" EntitySet="tbl_homework_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_score__stu_i__787EE5A0" Association="Self.FK__tbl_score__stu_i__787EE5A0">
+            <End Role="tbl_student" EntitySet="tbl_student" />
+            <End Role="tbl_score" EntitySet="tbl_score" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_score__tea_i__797309D9" Association="Self.FK__tbl_score__tea_i__797309D9">
+            <End Role="tbl_teacher" EntitySet="tbl_teacher" />
+            <End Role="tbl_score" EntitySet="tbl_score" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="web_projectModel1StoreContainer" CdmEntityContainer="web_projectEntities3">
+          <EntitySetMapping Name="tbl_attandance">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_attandance">
+              <MappingFragment StoreEntitySet="tbl_attandance">
+                <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+                <ScalarProperty Name="stu_id" ColumnName="stu_id" />
+                <ScalarProperty Name="tea_id" ColumnName="tea_id" />
+                <ScalarProperty Name="att_date" ColumnName="att_date" />
+                <ScalarProperty Name="att_type" ColumnName="att_type" />
+                <ScalarProperty Name="att_description" ColumnName="att_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_class">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_class">
+              <MappingFragment StoreEntitySet="tbl_class">
+                <ScalarProperty Name="class_id" ColumnName="class_id" />
+                <ScalarProperty Name="class_name" ColumnName="class_name" />
+                <ScalarProperty Name="class_department" ColumnName="class_department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_homework">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_homework">
+              <MappingFragment StoreEntitySet="tbl_homework">
+                <ScalarProperty Name="hom_id" ColumnName="hom_id" />
+                <ScalarProperty Name="hom_description" ColumnName="hom_description" />
+                <ScalarProperty Name="hom_type" ColumnName="hom_type" />
+                <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_lesson">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_lesson">
+              <MappingFragment StoreEntitySet="tbl_lesson">
+                <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+                <ScalarProperty Name="tea_id" ColumnName="tea_id" />
+                <ScalarProperty Name="les_name" ColumnName="les_name" />
+                <ScalarProperty Name="les_desc" ColumnName="les_desc" />
+                <ScalarProperty Name="les_chapter" ColumnName="les_chapter" />
+                <ScalarProperty Name="les_file_path" ColumnName="les_file_path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_schdedule">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_schdedule">
+              <MappingFragment StoreEntitySet="tbl_schdedule">
+                <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+                <ScalarProperty Name="class_id" ColumnName="class_id" />
+                <ScalarProperty Name="tea_id" ColumnName="tea_id" />
+                <ScalarProperty Name="sch_time" ColumnName="sch_time" />
+                <ScalarProperty Name="sch_day" ColumnName="sch_day" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_student">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_student">
+              <MappingFragment StoreEntitySet="tbl_student">
+                <ScalarProperty Name="stu_id" ColumnName="stu_id" />
+                <ScalarProperty Name="stu_name" ColumnName="stu_name" />
+                <ScalarProperty Name="stu_sex" ColumnName="stu_sex" />
+                <ScalarProperty Name="stu_dob" ColumnName="stu_dob" />
+                <ScalarProperty Name="stu_pob" ColumnName="stu_pob" />
+                <ScalarProperty Name="stu_address" ColumnName="stu_address" />
+                <ScalarProperty Name="stu_phone" ColumnName="stu_phone" />
+                <ScalarProperty Name="stu_email" ColumnName="stu_email" />
+                <ScalarProperty Name="stu_emergency_number" ColumnName="stu_emergency_number" />
+                <ScalarProperty Name="class_id" ColumnName="class_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_subject">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_subject">
+              <MappingFragment StoreEntitySet="tbl_subject">
+                <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+                <ScalarProperty Name="sub_name" ColumnName="sub_name" />
+                <ScalarProperty Name="sub_description" ColumnName="sub_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_teacher">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_teacher">
+              <MappingFragment StoreEntitySet="tbl_teacher">
+                <ScalarProperty Name="tea_id" ColumnName="tea_id" />
+                <ScalarProperty Name="tea_email" ColumnName="tea_email" />
+                <ScalarProperty Name="tea_name" ColumnName="tea_name" />
+                <ScalarProperty Name="tea_gender" ColumnName="tea_gender" />
+                <ScalarProperty Name="tea_dob" ColumnName="tea_dob" />
+                <ScalarProperty Name="tea_pob" ColumnName="tea_pob" />
+                <ScalarProperty Name="tea_address" ColumnName="tea_address" />
+                <ScalarProperty Name="tea_phone" ColumnName="tea_phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_user">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_user">
+              <MappingFragment StoreEntitySet="tbl_user">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_psw" ColumnName="user_psw" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_homework_detail">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_homework_detail">
+              <MappingFragment StoreEntitySet="tbl_homework_detail">
+                <ScalarProperty Name="hom_id" ColumnName="hom_id" />
+                <ScalarProperty Name="stu_id" ColumnName="stu_id" />
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_score">
+            <EntityTypeMapping TypeName="web_projectModel1.tbl_score">
+              <MappingFragment StoreEntitySet="tbl_score">
+                <ScalarProperty Name="stu_id" ColumnName="stu_id" />
+                <ScalarProperty Name="tea_id" ColumnName="tea_id" />
+                <ScalarProperty Name="stu_name" ColumnName="stu_name" />
+                <ScalarProperty Name="attandance" ColumnName="attandance" />
+                <ScalarProperty Name="homework" ColumnName="homework" />
+                <ScalarProperty Name="assignment" ColumnName="assignment" />
+                <ScalarProperty Name="final_exam" ColumnName="final_exam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
