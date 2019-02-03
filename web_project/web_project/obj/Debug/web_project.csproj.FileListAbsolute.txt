@@ -93,3 +93,4 @@ C:\Users\ridh\Desktop\Web_semester2\web_project\web_project\bin\EntityFramework.
 C:\Users\ridh\Desktop\Web_semester2\web_project\web_project\bin\EntityFramework.SqlServer.dll
 C:\Users\ridh\Desktop\Web_semester2\web_project\web_project\bin\EntityFramework.xml
 C:\Users\ridh\Desktop\Web_semester2\web_project\web_project\bin\EntityFramework.SqlServer.xml
+C:\Users\MSI\Desktop\WebAss\web_project\web_project\obj\Debug\web_project.csprojResolveAssemblyReference.cache
