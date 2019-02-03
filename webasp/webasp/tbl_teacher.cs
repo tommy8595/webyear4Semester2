@@ -18,12 +18,13 @@ namespace webasp
         public tbl_teacher()
         {
             this.tbl_attandance = new HashSet<tbl_attandance>();
-            this.tbl_homework = new HashSet<tbl_homework>();
             this.tbl_lesson = new HashSet<tbl_lesson>();
             this.tbl_schdedule = new HashSet<tbl_schdedule>();
+            this.tbl_score = new HashSet<tbl_score>();
         }
     
-        public string tea_id { get; set; }
+        public int tea_id { get; set; }
+        public string tea_email { get; set; }
         public string tea_name { get; set; }
         public string tea_gender { get; set; }
         public System.DateTime tea_dob { get; set; }
@@ -34,10 +35,10 @@ namespace webasp
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_attandance> tbl_attandance { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_homework> tbl_homework { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_lesson> tbl_lesson { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_schdedule> tbl_schdedule { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_score> tbl_score { get; set; }
     }
 }

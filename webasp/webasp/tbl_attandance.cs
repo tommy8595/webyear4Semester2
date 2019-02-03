@@ -15,8 +15,8 @@ namespace webasp
     public partial class tbl_attandance
     {
         public int sub_id { get; set; }
-        public string stu_id { get; set; }
-        public string tea_id { get; set; }
+        public int stu_id { get; set; }
+        public int tea_id { get; set; }
         public Nullable<System.DateTime> att_date { get; set; }
         public string att_type { get; set; }
         public string att_description { get; set; }

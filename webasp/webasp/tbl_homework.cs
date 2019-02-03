@@ -21,15 +21,12 @@ namespace webasp
         }
     
         public int hom_id { get; set; }
-        public int sub_id { get; set; }
-        public string tea_id { get; set; }
         public string hom_description { get; set; }
         public string hom_type { get; set; }
-        public Nullable<System.DateTime> hom_deadline { get; set; }
+        public int sub_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_homework_detail> tbl_homework_detail { get; set; }
         public virtual tbl_subject tbl_subject { get; set; }
-        public virtual tbl_teacher tbl_teacher { get; set; }
     }
 }

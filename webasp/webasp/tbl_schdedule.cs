@@ -15,8 +15,8 @@ namespace webasp
     public partial class tbl_schdedule
     {
         public int sub_id { get; set; }
-        public string class_id { get; set; }
-        public string tea_id { get; set; }
+        public int class_id { get; set; }
+        public int tea_id { get; set; }
         public Nullable<System.TimeSpan> sch_time { get; set; }
         public string sch_day { get; set; }
     
