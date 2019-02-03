@@ -15,9 +15,8 @@ namespace webasp
     public partial class tbl_homework_detail
     {
         public int hom_id { get; set; }
-        public string stu_id { get; set; }
-        public string note { get; set; }
-        public Nullable<double> score { get; set; }
+        public int stu_id { get; set; }
+        public double point { get; set; }
         public string description { get; set; }
     
         public virtual tbl_homework tbl_homework { get; set; }

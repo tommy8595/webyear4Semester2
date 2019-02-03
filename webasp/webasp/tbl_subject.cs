@@ -21,7 +21,6 @@ namespace webasp
             this.tbl_homework = new HashSet<tbl_homework>();
             this.tbl_lesson = new HashSet<tbl_lesson>();
             this.tbl_schdedule = new HashSet<tbl_schdedule>();
-            this.tbl_score = new HashSet<tbl_score>();
         }
     
         public int sub_id { get; set; }
@@ -36,7 +35,5 @@ namespace webasp
         public virtual ICollection<tbl_lesson> tbl_lesson { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_schdedule> tbl_schdedule { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_score> tbl_score { get; set; }
     }
 }

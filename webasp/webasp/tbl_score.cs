@@ -14,8 +14,8 @@ namespace webasp
     
     public partial class tbl_score
     {
-        public int sub_id { get; set; }
-        public string stu_id { get; set; }
+        public int stu_id { get; set; }
+        public int tea_id { get; set; }
         public string stu_name { get; set; }
         public double attandance { get; set; }
         public double homework { get; set; }
@@ -23,6 +23,6 @@ namespace webasp
         public double final_exam { get; set; }
     
         public virtual tbl_student tbl_student { get; set; }
-        public virtual tbl_subject tbl_subject { get; set; }
+        public virtual tbl_teacher tbl_teacher { get; set; }
     }
 }

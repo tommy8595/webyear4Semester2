@@ -16,7 +16,11 @@ namespace webasp
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
+<<<<<<< HEAD
                 defaults: new { controller = "tbl_user", action = "Index", id = UrlParameter.Optional }
+=======
+                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
+>>>>>>> 9dc0a22dced0390f0f9962276a7b04ac8c2e9738
             );
         }
     }

@@ -10,18 +10,18 @@ using webasp;
 
 namespace webasp.Controllers
 {
-    public class tbl_userController : Controller
+    public class LoginController : Controller
     {
-        private web_projectEntities db = new web_projectEntities();
+        private web_projectEntities1 db = new web_projectEntities1();
 
-        // GET: tbl_user
-        public ActionResult Index()
+        // GET: Login
+        public ActionResult Login()
         {
             return View(db.tbl_user.ToList());
         }
 
-        // GET: tbl_user/Details/5
-        public ActionResult Details(string id)
+        // GET: Login/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -35,18 +35,18 @@ namespace webasp.Controllers
             return View(tbl_user);
         }
 
-        // GET: tbl_user/Create
+        // GET: Login/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: tbl_user/Create
+        // POST: Login/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "user_id,user_psw,user_type")] tbl_user tbl_user)
+        public ActionResult Create([Bind(Include = "user_id,user_email,user_psw,user_type")] tbl_user tbl_user)
         {
             if (ModelState.IsValid)
             {
@@ -58,8 +58,8 @@ namespace webasp.Controllers
             return View(tbl_user);
         }
 
-        // GET: tbl_user/Edit/5
-        public ActionResult Edit(string id)
+        // GET: Login/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -73,12 +73,12 @@ namespace webasp.Controllers
             return View(tbl_user);
         }
 
-        // POST: tbl_user/Edit/5
+        // POST: Login/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "user_id,user_psw,user_type")] tbl_user tbl_user)
+        public ActionResult Edit([Bind(Include = "user_id,user_email,user_psw,user_type")] tbl_user tbl_user)
         {
             if (ModelState.IsValid)
             {
@@ -89,8 +89,8 @@ namespace webasp.Controllers
             return View(tbl_user);
         }
 
-        // GET: tbl_user/Delete/5
-        public ActionResult Delete(string id)
+        // GET: Login/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -104,10 +104,10 @@ namespace webasp.Controllers
             return View(tbl_user);
         }
 
-        // POST: tbl_user/Delete/5
+        // POST: Login/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             tbl_user tbl_user = db.tbl_user.Find(id);
             db.tbl_user.Remove(tbl_user);

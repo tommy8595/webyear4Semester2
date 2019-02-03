@@ -22,7 +22,7 @@ namespace webasp
             this.tbl_score = new HashSet<tbl_score>();
         }
     
-        public string stu_id { get; set; }
+        public int stu_id { get; set; }
         public string stu_name { get; set; }
         public string stu_sex { get; set; }
         public System.DateTime stu_dob { get; set; }
@@ -31,7 +31,7 @@ namespace webasp
         public string stu_phone { get; set; }
         public string stu_email { get; set; }
         public string stu_emergency_number { get; set; }
-        public string class_id { get; set; }
+        public Nullable<int> class_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_attandance> tbl_attandance { get; set; }

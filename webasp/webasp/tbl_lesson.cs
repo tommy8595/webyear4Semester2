@@ -15,7 +15,7 @@ namespace webasp
     public partial class tbl_lesson
     {
         public int sub_id { get; set; }
-        public string tea_id { get; set; }
+        public int tea_id { get; set; }
         public string les_name { get; set; }
         public string les_desc { get; set; }
         public string les_chapter { get; set; }

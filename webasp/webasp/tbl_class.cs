@@ -21,7 +21,7 @@ namespace webasp
             this.tbl_student = new HashSet<tbl_student>();
         }
     
-        public string class_id { get; set; }
+        public int class_id { get; set; }
         public string class_name { get; set; }
         public string class_department { get; set; }
     

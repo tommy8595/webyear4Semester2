@@ -14,7 +14,8 @@ namespace webasp
     
     public partial class tbl_user
     {
-        public string user_id { get; set; }
+        public int user_id { get; set; }
+        public string user_email { get; set; }
         public string user_psw { get; set; }
         public string user_type { get; set; }
     }
