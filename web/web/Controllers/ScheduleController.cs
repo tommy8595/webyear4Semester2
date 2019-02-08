@@ -20,9 +20,7 @@ namespace web.Controllers
         }
         public ActionResult Index(int? id=1)
         {
-            List<sch> sc = new List<sch>();
-      
-            return View();
+                 return View();
         }
     }
 }

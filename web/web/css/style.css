@@ -272,12 +272,4 @@ footer.page-footer .footer-copyright {
     margin: 20px;
   }
 }
-tr: nth - child(4n + 1) td,
-tr: nth - child(4n + 2) td {
-    background - color: #ffa;
-}
 
-tr: nth - child(4n + 3) td,
-tr: nth - child(4n + 4) td {
-    background - color: #f90;
-}
