@@ -13,7 +13,35 @@ namespace web.Controllers
     public class tbl_schdeduleController : Controller
     {
         private web_projectEntities db = new web_projectEntities();
+        [HttpPost]
+        public ActionResult Index(string searchString="M4")
+        {
+           
+            var students = from s in db.tbl_schdedule
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.tbl_class.class_name.ToUpper().Contains(searchString.ToUpper())
+                                       || s.tbl_teacher.tea_name.ToUpper().Contains(searchString.ToUpper()));
+            }
+            //switch (sortOrder)
+            //{
+            //    case "name_desc":
+            //        students = students.OrderByDescending(s => s.LastName);
+            //        break;
+            //    case "Date":
+            //        students = students.OrderBy(s => s.EnrollmentDate);
+            //        break;
+            //    case "date_desc":
+            //        students = students.OrderByDescending(s => s.EnrollmentDate);
+            //        break;
+            //    default:
+            //        students = students.OrderBy(s => s.LastName);
+            //        break;
+            //}
 
+            return View(students.ToList());
+        }
         // GET: tbl_schdedule
         public ActionResult Index()
         {

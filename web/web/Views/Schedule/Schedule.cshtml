@@ -85,19 +85,16 @@
                             <tbody>
                                 <tr>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.tbl_time.times)
+                                       Time
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.tbl_day.day)
+                                       Day
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.tbl_class.class_name)
+                                       Subject
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.tbl_subject.sub_name)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.tbl_teacher.tea_email)
+                                      Lecture
                                     </th>
                                     <th></th>
                                 </tr>
@@ -106,19 +103,26 @@
                                 {
                                     <tr>
                                         <td>
+                                            <br />
+                                            <h3>
                                             @Html.DisplayFor(modelItem => item.tbl_time.times)
+                                            </h3>
                                         </td>
                                         <td>
+                                            <br />
                                             @Html.DisplayFor(modelItem => item.tbl_day.day)
                                         </td>
+                                       
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.tbl_class.class_name)
+                                            <br />
+                                            <a href="../../lesson/@item.sub_id">
+                                             @Html.DisplayFor(modelItem => item.tbl_subject.sub_name)
+                                            </a>
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.tbl_subject.sub_name)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.tbl_teacher.tea_email)
+                                            @Html.DisplayFor(modelItem => item.tbl_teacher.tea_name)<br />
+                                            @Html.DisplayFor(modelItem => item.tbl_teacher.tea_email)<br />
+                                            @Html.DisplayFor(modelItem => item.tbl_teacher.tea_phone)<br />
                                         </td>
                                         
                                     </tr>
@@ -168,3 +172,6 @@
     </body>
 
 </html>
+<script>
+    
+</script>
