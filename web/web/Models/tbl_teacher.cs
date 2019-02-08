@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace web
+namespace web.Models
 {
     using System;
     using System.Collections.Generic;
@@ -40,5 +40,7 @@ namespace web
         public virtual ICollection<tbl_schdedule> tbl_schdedule { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_score> tbl_score { get; set; }
+        public virtual tbl_teacher tbl_teacher1 { get; set; }
+        public virtual tbl_teacher tbl_teacher2 { get; set; }
     }
 }

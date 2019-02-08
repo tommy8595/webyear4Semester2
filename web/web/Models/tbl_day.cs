@@ -7,27 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace web
+namespace web.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_class
+    public partial class tbl_day
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_class()
+        public tbl_day()
         {
             this.tbl_schdedule = new HashSet<tbl_schdedule>();
-            this.tbl_student = new HashSet<tbl_student>();
         }
     
-        public int class_id { get; set; }
-        public string class_name { get; set; }
-        public string class_department { get; set; }
+        public string day { get; set; }
+        public int day_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_schdedule> tbl_schdedule { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_student> tbl_student { get; set; }
     }
 }

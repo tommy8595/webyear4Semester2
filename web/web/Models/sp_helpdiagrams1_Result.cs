@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace web
+namespace web.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class tbl_user
+    public partial class sp_helpdiagrams1_Result
     {
-        public int user_id { get; set; }
-        public string user_email { get; set; }
-        public string user_psw { get; set; }
-        public string user_type { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

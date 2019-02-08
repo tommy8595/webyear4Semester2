@@ -7,21 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace web
+namespace web.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_attandance
+    public partial class tbl_lesson
     {
         public int sub_id { get; set; }
-        public int stu_id { get; set; }
         public int tea_id { get; set; }
-        public Nullable<System.DateTime> att_date { get; set; }
-        public string att_type { get; set; }
-        public string att_description { get; set; }
+        public string les_name { get; set; }
+        public string les_desc { get; set; }
+        public string les_chapter { get; set; }
+        public string les_file_path { get; set; }
     
-        public virtual tbl_student tbl_student { get; set; }
         public virtual tbl_subject tbl_subject { get; set; }
         public virtual tbl_teacher tbl_teacher { get; set; }
     }

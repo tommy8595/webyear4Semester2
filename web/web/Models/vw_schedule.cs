@@ -7,19 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace web
+namespace web.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_homework_detail
+    public partial class vw_schedule
     {
-        public int hom_id { get; set; }
-        public int stu_id { get; set; }
-        public double point { get; set; }
-        public string description { get; set; }
-    
-        public virtual tbl_homework tbl_homework { get; set; }
-        public virtual tbl_student tbl_student { get; set; }
+        public int sub_id { get; set; }
+        public int class_id { get; set; }
+        public int tea_id { get; set; }
+        public Nullable<System.TimeSpan> sch_time { get; set; }
+        public string sch_day { get; set; }
+        public int sch_id { get; set; }
     }
 }

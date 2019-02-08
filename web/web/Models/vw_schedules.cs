@@ -7,21 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace web
+namespace web.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_lesson
+    public partial class vw_schedules
     {
         public int sub_id { get; set; }
+        public int class_id { get; set; }
         public int tea_id { get; set; }
-        public string les_name { get; set; }
-        public string les_desc { get; set; }
-        public string les_chapter { get; set; }
-        public string les_file_path { get; set; }
-    
-        public virtual tbl_subject tbl_subject { get; set; }
-        public virtual tbl_teacher tbl_teacher { get; set; }
+        public Nullable<System.TimeSpan> sch_time { get; set; }
+        public int sch_id { get; set; }
+        public Nullable<int> Monday { get; set; }
+        public Nullable<int> Tuesday { get; set; }
+        public Nullable<int> Wednesday { get; set; }
+        public Nullable<int> Thursday { get; set; }
     }
 }

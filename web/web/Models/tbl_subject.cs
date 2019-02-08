@@ -7,38 +7,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace web
+namespace web.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_student
+    public partial class tbl_subject
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_student()
+        public tbl_subject()
         {
             this.tbl_attandance = new HashSet<tbl_attandance>();
-            this.tbl_homework_detail = new HashSet<tbl_homework_detail>();
-            this.tbl_score = new HashSet<tbl_score>();
+            this.tbl_homework = new HashSet<tbl_homework>();
+            this.tbl_lesson = new HashSet<tbl_lesson>();
+            this.tbl_schdedule = new HashSet<tbl_schdedule>();
         }
     
-        public int stu_id { get; set; }
-        public string stu_name { get; set; }
-        public string stu_sex { get; set; }
-        public System.DateTime stu_dob { get; set; }
-        public string stu_pob { get; set; }
-        public string stu_address { get; set; }
-        public string stu_phone { get; set; }
-        public string stu_email { get; set; }
-        public string stu_emergency_number { get; set; }
-        public Nullable<int> class_id { get; set; }
+        public int sub_id { get; set; }
+        public string sub_name { get; set; }
+        public string sub_description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_attandance> tbl_attandance { get; set; }
-        public virtual tbl_class tbl_class { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_homework_detail> tbl_homework_detail { get; set; }
+        public virtual ICollection<tbl_homework> tbl_homework { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_score> tbl_score { get; set; }
+        public virtual ICollection<tbl_lesson> tbl_lesson { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_schdedule> tbl_schdedule { get; set; }
     }
 }

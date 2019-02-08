@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.SqlClient;
 using web;
+using web.Models;
 
 namespace web.Controllers
 {

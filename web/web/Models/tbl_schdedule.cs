@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace web
+namespace web.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,11 +17,14 @@ namespace web
         public int sub_id { get; set; }
         public int class_id { get; set; }
         public int tea_id { get; set; }
-        public Nullable<System.TimeSpan> sch_time { get; set; }
-        public string sch_day { get; set; }
+        public int sch_id { get; set; }
+        public int sch_days { get; set; }
+        public Nullable<int> sch_times { get; set; }
     
         public virtual tbl_class tbl_class { get; set; }
         public virtual tbl_subject tbl_subject { get; set; }
         public virtual tbl_teacher tbl_teacher { get; set; }
+        public virtual tbl_day tbl_day { get; set; }
+        public virtual tbl_time tbl_time { get; set; }
     }
 }

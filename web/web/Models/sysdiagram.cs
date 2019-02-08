@@ -7,22 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace web
+namespace web.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_score
+    public partial class sysdiagram
     {
-        public int stu_id { get; set; }
-        public int tea_id { get; set; }
-        public string stu_name { get; set; }
-        public double attandance { get; set; }
-        public double homework { get; set; }
-        public double assignment { get; set; }
-        public double final_exam { get; set; }
-    
-        public virtual tbl_student tbl_student { get; set; }
-        public virtual tbl_teacher tbl_teacher { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
