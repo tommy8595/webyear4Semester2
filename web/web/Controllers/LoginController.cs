@@ -23,7 +23,9 @@ namespace web.Controllers
             try
             {
                 string sql = "SELECT * FROM tbl_user where user_email = @ue and user_psw = @up";
+                
                 var _sqlQuery = db.tbl_user.SqlQuery(sql, new SqlParameter("@ue", em), new SqlParameter("@up", pass));
+                
                 if (_sqlQuery.Count() > 0)
                 {
                     return RedirectPermanent(Url.Action("Menu","Menu"));
