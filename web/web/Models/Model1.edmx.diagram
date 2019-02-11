@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="feba75e96bdb4304bb20b85205e9ddab" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="feba75e96bdb4304bb20b85205e9ddab" Name="Diagram1" ZoomLevel="124">
         <EntityTypeShape EntityType="web_projectModel.tbl_attandance" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="web_projectModel.tbl_class" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="web_projectModel.tbl_homework" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
@@ -38,6 +38,7 @@
         <EntityTypeShape EntityType="web_projectModel.tbl_time" Width="1.5" PointX="10.375" PointY="0.75" />
         <AssociationConnector Association="web_projectModel.FK__tbl_schde__sch_t__1F98B2C1" />
         <AssociationConnector Association="web_projectModel.FK__tbl_teach__tea_i__2645B050" />
+        <AssociationConnector Association="web_projectModel.tbl_studenttbl_user" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

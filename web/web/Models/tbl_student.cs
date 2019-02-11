@@ -40,5 +40,6 @@ namespace web.Models
         public virtual ICollection<tbl_homework_detail> tbl_homework_detail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_score> tbl_score { get; set; }
+        public virtual tbl_user tbl_user { get; set; }
     }
 }

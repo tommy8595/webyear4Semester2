@@ -22,12 +22,13 @@ namespace web.Controllers
         {
             try
             {
-                //string sql = "SELECT * FROM tbl_user where user_email = @ue and user_psw = @up";
-
-                //var _sqlQuery = db.tbl_user.SqlQuery(sql, new SqlParameter("@ue", em), new SqlParameter("@up", pass));
                 var _queryUser = from u in db.tbl_user.ToList() where u.user_email.Equals(em) && u.user_psw.Equals(pass) select u;
+                var _queryStudent = from s in db.tbl_student.ToList() where s.tbl_user.user_id == _queryUser.ToList().SingleOrDefault().user_id select s;
                 if (_queryUser.Count() > 0)
                 {
+                    Session.Add("STU_ID", _queryStudent.SingleOrDefault().stu_id);
+                    Session.Add("CLASS_ID", _queryStudent.SingleOrDefault().class_id);
+                    //Response.Write(_queryStudent.SingleOrDefault().stu_id + "<br>" + _queryStudent.SingleOrDefault().class_id);
                     return RedirectPermanent(Url.Action("Menu", "Menu"));
                 }
                 else

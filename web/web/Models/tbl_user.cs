@@ -18,5 +18,7 @@ namespace web.Models
         public string user_email { get; set; }
         public string user_psw { get; set; }
         public string user_type { get; set; }
+    
+        public virtual tbl_student tbl_student { get; set; }
     }
 }
