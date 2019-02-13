@@ -28,7 +28,7 @@ namespace web.Controllers
                 {
                     Session.Add("STU_ID", _queryStudent.SingleOrDefault().stu_id);
                     Session.Add("CLASS_ID", _queryStudent.SingleOrDefault().class_id);
-                    //Response.Write(_queryStudent.SingleOrDefault().stu_id + "<br>" + _queryStudent.SingleOrDefault().class_id);
+              
                     return RedirectPermanent(Url.Action("Menu", "Menu"));
                 }
                 else
