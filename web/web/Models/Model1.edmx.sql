@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/11/2019 21:24:18
--- Generated from EDMX file: D:\AssignmentWebS2\web\web\Models\Model1.edmx
+-- Date Created: 02/16/2019 12:31:36
+-- Generated from EDMX file: C:\Users\ridh\Desktop\web2\web\web\Models\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,73 +17,100 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK__tbl_attan__stu_i__36B12243]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__stu_i__36B12243];
+IF OBJECT_ID(N'[dbo].[FK__tbl_attan__stu_i__75A278F5]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__stu_i__75A278F5];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_attan__sub_i__37A5467C]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__sub_i__37A5467C];
+IF OBJECT_ID(N'[dbo].[FK__tbl_attan__sub_i__74AE54BC]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__sub_i__74AE54BC];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_attan__tea_i__38996AB5]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__tea_i__38996AB5];
+IF OBJECT_ID(N'[dbo].[FK__tbl_attan__tea_i__76969D2E]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__tea_i__76969D2E];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_schde__class__3E52440B]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__class__3E52440B];
+IF OBJECT_ID(N'[web_projectModelStoreContainer].[FK__tbl_homew__hom_i__46E78A0C]', 'F') IS NOT NULL
+    ALTER TABLE [web_projectModelStoreContainer].[tbl_homework_detail] DROP CONSTRAINT [FK__tbl_homew__hom_i__46E78A0C];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_stude__class__4316F928]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_student] DROP CONSTRAINT [FK__tbl_stude__class__4316F928];
+IF OBJECT_ID(N'[web_projectModelStoreContainer].[FK__tbl_homew__stu_i__47DBAE45]', 'F') IS NOT NULL
+    ALTER TABLE [web_projectModelStoreContainer].[tbl_homework_detail] DROP CONSTRAINT [FK__tbl_homew__stu_i__47DBAE45];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_homew__hom_i__3A81B327]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_homework_detail] DROP CONSTRAINT [FK__tbl_homew__hom_i__3A81B327];
+IF OBJECT_ID(N'[dbo].[FK__tbl_homew__sub_i__22AA2996]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_homework] DROP CONSTRAINT [FK__tbl_homew__sub_i__22AA2996];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_homew__sub_i__398D8EEE]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_homework] DROP CONSTRAINT [FK__tbl_homew__sub_i__398D8EEE];
+IF OBJECT_ID(N'[dbo].[FK__tbl_lesso__chap___4C6B5938]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_lesson] DROP CONSTRAINT [FK__tbl_lesso__chap___4C6B5938];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_lesso__sub_i__3C69FB99]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_lesson] DROP CONSTRAINT [FK__tbl_lesso__sub_i__3C69FB99];
+IF OBJECT_ID(N'[dbo].[FK__tbl_lesso__sub_i__1A14E395]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_chapter] DROP CONSTRAINT [FK__tbl_lesso__sub_i__1A14E395];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_lesso__tea_i__3D5E1FD2]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_lesson] DROP CONSTRAINT [FK__tbl_lesso__tea_i__3D5E1FD2];
+IF OBJECT_ID(N'[dbo].[FK__tbl_lesso__tea_i__1B0907CE]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_chapter] DROP CONSTRAINT [FK__tbl_lesso__tea_i__1B0907CE];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sub_i__3F466844]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sub_i__3F466844];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__class__2CF2ADDF]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__class__2CF2ADDF];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_schde__tea_i__403A8C7D]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__tea_i__403A8C7D];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__class__2EDAF651]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__class__2EDAF651];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_homew__stu_i__3B75D760]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_homework_detail] DROP CONSTRAINT [FK__tbl_homew__stu_i__3B75D760];
-GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_score__stu_i__412EB0B6]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_score] DROP CONSTRAINT [FK__tbl_score__stu_i__412EB0B6];
-GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_score__tea_i__4222D4EF]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_score] DROP CONSTRAINT [FK__tbl_score__tea_i__4222D4EF];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__class__32AB8735]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__class__32AB8735];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_d__17036CC0]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_d__17036CC0];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_t__1F98B2C1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_t__1F98B2C1];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_d__3587F3E0]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_d__3587F3E0];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_t__2BFE89A6]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_t__2BFE89A6];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_t__2DE6D218]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_t__2DE6D218];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_t__31B762FC]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_t__31B762FC];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sub_i__30C33EC3]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sub_i__30C33EC3];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sub_i__3493CFA7]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sub_i__3493CFA7];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__tea_i__2FCF1A8A]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__tea_i__2FCF1A8A];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__tea_i__339FAB6E]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__tea_i__339FAB6E];
+GO
+IF OBJECT_ID(N'[web_projectModelStoreContainer].[FK__tbl_score__stu_i__787EE5A0]', 'F') IS NOT NULL
+    ALTER TABLE [web_projectModelStoreContainer].[tbl_score] DROP CONSTRAINT [FK__tbl_score__stu_i__787EE5A0];
+GO
+IF OBJECT_ID(N'[web_projectModelStoreContainer].[FK__tbl_score__tea_i__797309D9]', 'F') IS NOT NULL
+    ALTER TABLE [web_projectModelStoreContainer].[tbl_score] DROP CONSTRAINT [FK__tbl_score__tea_i__797309D9];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_stude__class__3B75D760]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_student] DROP CONSTRAINT [FK__tbl_stude__class__3B75D760];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbl_teach__tea_i__2645B050]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[tbl_teacher] DROP CONSTRAINT [FK__tbl_teach__tea_i__2645B050];
-GO
-IF OBJECT_ID(N'[dbo].[FK_tbl_usertbl_student]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_student] DROP CONSTRAINT [FK_tbl_usertbl_student];
-GO
-IF OBJECT_ID(N'[dbo].[FK_tbl_usertbl_teacher]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_teacher] DROP CONSTRAINT [FK_tbl_usertbl_teacher];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[sysdiagrams]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[sysdiagrams];
+GO
 IF OBJECT_ID(N'[dbo].[tbl_attandance]', 'U') IS NOT NULL
     DROP TABLE [dbo].[tbl_attandance];
 GO
+IF OBJECT_ID(N'[dbo].[tbl_chapter]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbl_chapter];
+GO
 IF OBJECT_ID(N'[dbo].[tbl_class]', 'U') IS NOT NULL
     DROP TABLE [dbo].[tbl_class];
+GO
+IF OBJECT_ID(N'[dbo].[tbl_day]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbl_day];
 GO
 IF OBJECT_ID(N'[dbo].[tbl_homework]', 'U') IS NOT NULL
     DROP TABLE [dbo].[tbl_homework];
@@ -103,29 +130,20 @@ GO
 IF OBJECT_ID(N'[dbo].[tbl_teacher]', 'U') IS NOT NULL
     DROP TABLE [dbo].[tbl_teacher];
 GO
+IF OBJECT_ID(N'[dbo].[tbl_time]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbl_time];
+GO
 IF OBJECT_ID(N'[dbo].[tbl_user]', 'U') IS NOT NULL
     DROP TABLE [dbo].[tbl_user];
 GO
-IF OBJECT_ID(N'[dbo].[tbl_homework_detail]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbl_homework_detail];
+IF OBJECT_ID(N'[web_projectModelStoreContainer].[tbl_homework_detail]', 'U') IS NOT NULL
+    DROP TABLE [web_projectModelStoreContainer].[tbl_homework_detail];
 GO
-IF OBJECT_ID(N'[dbo].[tbl_score]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbl_score];
+IF OBJECT_ID(N'[web_projectModelStoreContainer].[tbl_score]', 'U') IS NOT NULL
+    DROP TABLE [web_projectModelStoreContainer].[tbl_score];
 GO
-IF OBJECT_ID(N'[dbo].[sysdiagrams]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[sysdiagrams];
-GO
-IF OBJECT_ID(N'[dbo].[vw_schedule]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[vw_schedule];
-GO
-IF OBJECT_ID(N'[dbo].[vw_schedules]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[vw_schedules];
-GO
-IF OBJECT_ID(N'[dbo].[tbl_day]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbl_day];
-GO
-IF OBJECT_ID(N'[dbo].[tbl_time]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbl_time];
+IF OBJECT_ID(N'[web_projectModelStoreContainer].[vw_schedules]', 'U') IS NOT NULL
+    DROP TABLE [web_projectModelStoreContainer].[vw_schedules];
 GO
 
 -- --------------------------------------------------
@@ -160,17 +178,6 @@ CREATE TABLE [dbo].[tbl_homework] (
 );
 GO
 
--- Creating table 'tbl_lesson'
-CREATE TABLE [dbo].[tbl_lesson] (
-    [sub_id] int  NOT NULL,
-    [tea_id] int  NOT NULL,
-    [les_name] nvarchar(50)  NOT NULL,
-    [les_desc] nvarchar(max)  NULL,
-    [les_chapter] nvarchar(50)  NULL,
-    [les_file_path] nvarchar(max)  NULL
-);
-GO
-
 -- Creating table 'tbl_schdedule'
 CREATE TABLE [dbo].[tbl_schdedule] (
     [sub_id] int  NOT NULL,
@@ -191,7 +198,7 @@ CREATE TABLE [dbo].[tbl_student] (
     [stu_pob] nvarchar(max)  NOT NULL,
     [stu_address] nvarchar(max)  NOT NULL,
     [stu_phone] nvarchar(13)  NULL,
-    [stu_email] nvarchar(max)  NOT NULL,
+    [stu_email] nvarchar(max)  NULL,
     [stu_emergency_number] nvarchar(13)  NOT NULL,
     [class_id] int  NULL
 );
@@ -201,7 +208,8 @@ GO
 CREATE TABLE [dbo].[tbl_subject] (
     [sub_id] int IDENTITY(1,1) NOT NULL,
     [sub_name] nvarchar(max)  NULL,
-    [sub_description] nvarchar(max)  NULL
+    [sub_description] nvarchar(max)  NULL,
+    [sub_picture] nvarchar(max)  NULL
 );
 GO
 
@@ -214,14 +222,15 @@ CREATE TABLE [dbo].[tbl_teacher] (
     [tea_dob] datetime  NOT NULL,
     [tea_pob] nvarchar(max)  NOT NULL,
     [tea_address] nvarchar(max)  NULL,
-    [tea_phone] nvarchar(13)  NULL
+    [tea_phone] nvarchar(13)  NULL,
+    [tea_picture] nvarchar(max)  NULL
 );
 GO
 
 -- Creating table 'tbl_user'
 CREATE TABLE [dbo].[tbl_user] (
     [user_id] int  NOT NULL,
-    [user_email] nvarchar(100)  NOT NULL,
+    [user_email] nvarchar(100)  NULL,
     [user_psw] nvarchar(50)  NOT NULL,
     [user_type] nvarchar(50)  NOT NULL
 );
@@ -258,17 +267,6 @@ CREATE TABLE [dbo].[sysdiagrams] (
 );
 GO
 
--- Creating table 'vw_schedule'
-CREATE TABLE [dbo].[vw_schedule] (
-    [sub_id] int  NOT NULL,
-    [class_id] int  NOT NULL,
-    [tea_id] int  NOT NULL,
-    [sch_time] time  NULL,
-    [sch_day] nvarchar(50)  NULL,
-    [sch_id] int IDENTITY(1,1) NOT NULL
-);
-GO
-
 -- Creating table 'vw_schedules'
 CREATE TABLE [dbo].[vw_schedules] (
     [sub_id] int  NOT NULL,
@@ -297,6 +295,26 @@ CREATE TABLE [dbo].[tbl_time] (
 );
 GO
 
+-- Creating table 'tbl_chapter'
+CREATE TABLE [dbo].[tbl_chapter] (
+    [sub_id] int  NOT NULL,
+    [tea_id] int  NOT NULL,
+    [chap_name] nvarchar(50)  NOT NULL,
+    [chap_description] nvarchar(max)  NULL,
+    [chap_file_path_pdf] nvarchar(max)  NULL,
+    [chap_id] int IDENTITY(1,1) NOT NULL
+);
+GO
+
+-- Creating table 'tbl_lesson'
+CREATE TABLE [dbo].[tbl_lesson] (
+    [les_id] int IDENTITY(1,1) NOT NULL,
+    [chap_id] int  NULL,
+    [les_name] nvarchar(50)  NULL,
+    [les_file_path_video] nvarchar(max)  NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -317,12 +335,6 @@ GO
 ALTER TABLE [dbo].[tbl_homework]
 ADD CONSTRAINT [PK_tbl_homework]
     PRIMARY KEY CLUSTERED ([hom_id] ASC);
-GO
-
--- Creating primary key on [sub_id], [tea_id] in table 'tbl_lesson'
-ALTER TABLE [dbo].[tbl_lesson]
-ADD CONSTRAINT [PK_tbl_lesson]
-    PRIMARY KEY CLUSTERED ([sub_id], [tea_id] ASC);
 GO
 
 -- Creating primary key on [sch_id] in table 'tbl_schdedule'
@@ -373,12 +385,6 @@ ADD CONSTRAINT [PK_sysdiagrams]
     PRIMARY KEY CLUSTERED ([diagram_id] ASC);
 GO
 
--- Creating primary key on [sub_id], [class_id], [tea_id], [sch_id] in table 'vw_schedule'
-ALTER TABLE [dbo].[vw_schedule]
-ADD CONSTRAINT [PK_vw_schedule]
-    PRIMARY KEY CLUSTERED ([sub_id], [class_id], [tea_id], [sch_id] ASC);
-GO
-
 -- Creating primary key on [sub_id], [class_id], [tea_id], [sch_id] in table 'vw_schedules'
 ALTER TABLE [dbo].[vw_schedules]
 ADD CONSTRAINT [PK_vw_schedules]
@@ -395,6 +401,18 @@ GO
 ALTER TABLE [dbo].[tbl_time]
 ADD CONSTRAINT [PK_tbl_time]
     PRIMARY KEY CLUSTERED ([time_id] ASC);
+GO
+
+-- Creating primary key on [chap_id] in table 'tbl_chapter'
+ALTER TABLE [dbo].[tbl_chapter]
+ADD CONSTRAINT [PK_tbl_chapter]
+    PRIMARY KEY CLUSTERED ([chap_id] ASC);
+GO
+
+-- Creating primary key on [les_id] in table 'tbl_lesson'
+ALTER TABLE [dbo].[tbl_lesson]
+ADD CONSTRAINT [PK_tbl_lesson]
+    PRIMARY KEY CLUSTERED ([les_id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -492,30 +510,6 @@ GO
 CREATE INDEX [IX_FK__tbl_homew__sub_i__398D8EEE]
 ON [dbo].[tbl_homework]
     ([sub_id]);
-GO
-
--- Creating foreign key on [sub_id] in table 'tbl_lesson'
-ALTER TABLE [dbo].[tbl_lesson]
-ADD CONSTRAINT [FK__tbl_lesso__sub_i__3C69FB99]
-    FOREIGN KEY ([sub_id])
-    REFERENCES [dbo].[tbl_subject]
-        ([sub_id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [tea_id] in table 'tbl_lesson'
-ALTER TABLE [dbo].[tbl_lesson]
-ADD CONSTRAINT [FK__tbl_lesso__tea_i__3D5E1FD2]
-    FOREIGN KEY ([tea_id])
-    REFERENCES [dbo].[tbl_teacher]
-        ([tea_id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK__tbl_lesso__tea_i__3D5E1FD2'
-CREATE INDEX [IX_FK__tbl_lesso__tea_i__3D5E1FD2]
-ON [dbo].[tbl_lesson]
-    ([tea_id]);
 GO
 
 -- Creating foreign key on [sub_id] in table 'tbl_schdedule'
@@ -633,6 +627,51 @@ ADD CONSTRAINT [FK_tbl_studenttbl_user]
     REFERENCES [dbo].[tbl_student]
         ([stu_id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [sub_id] in table 'tbl_chapter'
+ALTER TABLE [dbo].[tbl_chapter]
+ADD CONSTRAINT [FK__tbl_lesso__sub_i__1A14E395]
+    FOREIGN KEY ([sub_id])
+    REFERENCES [dbo].[tbl_subject]
+        ([sub_id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbl_lesso__sub_i__1A14E395'
+CREATE INDEX [IX_FK__tbl_lesso__sub_i__1A14E395]
+ON [dbo].[tbl_chapter]
+    ([sub_id]);
+GO
+
+-- Creating foreign key on [tea_id] in table 'tbl_chapter'
+ALTER TABLE [dbo].[tbl_chapter]
+ADD CONSTRAINT [FK__tbl_lesso__tea_i__1B0907CE]
+    FOREIGN KEY ([tea_id])
+    REFERENCES [dbo].[tbl_teacher]
+        ([tea_id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbl_lesso__tea_i__1B0907CE'
+CREATE INDEX [IX_FK__tbl_lesso__tea_i__1B0907CE]
+ON [dbo].[tbl_chapter]
+    ([tea_id]);
+GO
+
+-- Creating foreign key on [chap_id] in table 'tbl_lesson'
+ALTER TABLE [dbo].[tbl_lesson]
+ADD CONSTRAINT [FK__tbl_lesso__chap___4C6B5938]
+    FOREIGN KEY ([chap_id])
+    REFERENCES [dbo].[tbl_chapter]
+        ([chap_id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbl_lesso__chap___4C6B5938'
+CREATE INDEX [IX_FK__tbl_lesso__chap___4C6B5938]
+ON [dbo].[tbl_lesson]
+    ([chap_id]);
 GO
 
 -- --------------------------------------------------
