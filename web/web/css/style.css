@@ -115,7 +115,7 @@ footer.page-footer .footer-copyright {
 
 }
 @media only screen and (max-width: 600px) {
-  .SubjectBackground {
+  .SubjectBackground{
     background-color: #4879B0;
     padding: 10px;
     border-radius: 5px;

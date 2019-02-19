@@ -10,7 +10,7 @@ namespace web.Controllers
     {
         // GET: Lesson
         public ActionResult SCL()
-        {
+        { 
             return View();
         }
     }

@@ -110,12 +110,24 @@
     <Content Include="css\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\50268143_137652897187892_8225487598819213312_n.png" />
+    <Content Include="img\50275070_414323362660412_3969083890752028672_n.jpg" />
+    <Content Include="img\50574137_232657064309907_2044365962873929728_n.png" />
+    <Content Include="img\50601072_2140955299299260_8767782861240532992_n.png" />
+    <Content Include="img\50713963_375637793002220_62633916099461120_n.png" />
+    <Content Include="img\50770390_277969323117792_3509530198330572800_n.jpg" />
+    <Content Include="img\50964384_2633218320051558_3020529003241930752_n.jpg" />
     <Content Include="img\about.svg" />
     <Content Include="img\back-icon.png" />
     <Content Include="img\banner-effect-3.svg" />
+    <Content Include="img\Linux.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\logo1.png" />
+    <Content Include="img\MIS.png" />
+    <Content Include="img\ooad.png" />
+    <Content Include="img\SE.png" />
     <Content Include="img\testsubject.jpeg" />
+    <Content Include="img\web.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

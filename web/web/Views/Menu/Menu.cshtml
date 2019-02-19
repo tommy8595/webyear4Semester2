@@ -36,16 +36,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Subject <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Subject","StudentSubject")">Subject <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Schedule</a>
+                    <a class="nav-link" href="@Url.Action("Schedule","Schedule")">Schedule</a>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Assignment</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Attendance</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Main","Main")'">Logout</button>
                 </li>
             </ul>
         </div>
@@ -56,7 +59,7 @@
             <div class="detailPage">
                 <div class="row">
                     <div class="col-md-5">
-                        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681"
+                        <img src="~/img/50713963_375637793002220_62633916099461120_n.png"
                              alt="" class="img-fluid">
                     </div>
                     <div class="col-md-7">
@@ -93,7 +96,7 @@
                         </p>
                     </div>
                     <div class="col-md-5">
-                        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681"
+                        <img src="~/img/50601072_2140955299299260_8767782861240532992_n.png"
                              alt="" class="img-fluid">
                     </div>
                 </div>
@@ -104,7 +107,31 @@
             <div class="detailPage">
                 <div class="row">
                     <div class="col-md-5">
-                        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681"
+                        <img src="~/img/50574137_232657064309907_2044365962873929728_n.png"
+                             alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-7">
+                        <h5 class="titleDetail">Hello World</h5>
+                        <p class="descDetail">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Praesent tristique ex lorem. Orci varius natoque penatibus et magnis dis
+                            parturient montes, nascetur ridiculus mus. Vestibulum nec purus id mauris
+                            accumsan varius. In eu faucibus eros. Proin ac pulvinar sapien. Vivamus tristique
+                            elementum metus ac faucibus. Curabitur ante tortor, eleifend vel lectus vitae, suscipit
+                            dictum lacus. Fusce dapibus, purus ac maximus commodo, elit diam semper sapien, vel
+                            volutpat
+                            enim erat non lacus. Morbi non leo justo. Nullam semper imperdiet hendrerit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detailMargin">
+            <div class="detailPage">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="~/img/50574137_232657064309907_2044365962873929728_n.png"
                              alt="" class="img-fluid">
                     </div>
                     <div class="col-md-7">
