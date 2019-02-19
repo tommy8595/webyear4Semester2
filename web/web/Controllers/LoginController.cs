@@ -11,7 +11,7 @@ namespace web.Controllers
 {
     public class LoginController : Controller
     {
-        web_projectEntities db = new web_projectEntities();
+        web_projectEntities1 db = new web_projectEntities1();
         // GET: Login
         public ActionResult Index()
         {

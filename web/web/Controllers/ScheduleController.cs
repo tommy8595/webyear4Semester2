@@ -10,8 +10,9 @@ using web.Models;
 namespace web.Controllers
 {
     public class ScheduleController : Controller
+        
     {
-        private web_projectEntities db = new web_projectEntities();
+        private web_projectEntities1 db = new web_projectEntities1();
         // GET: Schedule
         public ActionResult Schedule()
         {

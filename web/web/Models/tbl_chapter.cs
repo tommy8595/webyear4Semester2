@@ -12,18 +12,23 @@ namespace web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_schdedule
+    public partial class tbl_chapter
     {
-        public int sub_id { get; set; }
-        public int class_id { get; set; }
-        public int tea_id { get; set; }
-        public int sch_id { get; set; }
-        public int sch_days { get; set; }
-        public Nullable<int> sch_times { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbl_chapter()
+        {
+            this.tbl_lesson = new HashSet<tbl_lesson>();
+        }
     
-        public virtual tbl_class tbl_class { get; set; }
-        public virtual tbl_day tbl_day { get; set; }
-        public virtual tbl_time tbl_time { get; set; }
+        public int sub_id { get; set; }
+        public int tea_id { get; set; }
+        public string chap_name { get; set; }
+        public string chap_description { get; set; }
+        public string chap_file_path_pdf { get; set; }
+        public int chap_id { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_lesson> tbl_lesson { get; set; }
         public virtual tbl_subject tbl_subject { get; set; }
         public virtual tbl_teacher tbl_teacher { get; set; }
     }

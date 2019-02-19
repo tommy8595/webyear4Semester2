@@ -12,7 +12,7 @@ namespace web.Controllers
 {
     public class tbl_schdeduleController : Controller
     {
-        private web_projectEntities db = new web_projectEntities();
+        private web_projectEntities1 db = new web_projectEntities1();
         [HttpPost]
         public ActionResult Index(string searchString="M4")
         {
