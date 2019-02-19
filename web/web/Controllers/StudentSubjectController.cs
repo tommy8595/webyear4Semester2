@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using web.Models;
 
 namespace web.Controllers
 {
@@ -11,6 +12,7 @@ namespace web.Controllers
         // GET: StudentSubject
         public ActionResult Subject()
         {
+           
             return View();
         }
     }

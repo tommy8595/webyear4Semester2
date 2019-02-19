@@ -18,7 +18,7 @@ namespace web.Models
         public tbl_teacher()
         {
             this.tbl_attandance = new HashSet<tbl_attandance>();
-            this.tbl_lesson = new HashSet<tbl_lesson>();
+            this.tbl_chapter = new HashSet<tbl_chapter>();
             this.tbl_schdedule = new HashSet<tbl_schdedule>();
             this.tbl_score = new HashSet<tbl_score>();
         }
@@ -35,7 +35,7 @@ namespace web.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_attandance> tbl_attandance { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_lesson> tbl_lesson { get; set; }
+        public virtual ICollection<tbl_chapter> tbl_chapter { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_schdedule> tbl_schdedule { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

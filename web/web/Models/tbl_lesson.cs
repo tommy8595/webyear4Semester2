@@ -14,14 +14,11 @@ namespace web.Models
     
     public partial class tbl_lesson
     {
-        public int sub_id { get; set; }
-        public int tea_id { get; set; }
+        public int les_id { get; set; }
+        public Nullable<int> chap_id { get; set; }
         public string les_name { get; set; }
-        public string les_desc { get; set; }
-        public string les_chapter { get; set; }
-        public string les_file_path { get; set; }
+        public string les_file_path_video { get; set; }
     
-        public virtual tbl_subject tbl_subject { get; set; }
-        public virtual tbl_teacher tbl_teacher { get; set; }
+        public virtual tbl_chapter tbl_chapter { get; set; }
     }
 }
