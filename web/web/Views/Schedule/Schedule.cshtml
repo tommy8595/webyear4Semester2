@@ -1,4 +1,5 @@
-﻿@model IEnumerable<web.Models.tbl_schdedule>
+﻿Ridh 012 Rupp, [20.02.19 14:23]
+@model IEnumerable<web.Models.tbl_schdedule>
 @{
     Layout = null;
 }
@@ -27,7 +28,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="@Url.Action("Main","Main")">
+        <a class="navbar-brand" href="#">
             <img src="~/img/logo1.png" alt="" height="90px" width="190px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -40,16 +41,13 @@
                     <a class="nav-link" href="#">Subject <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Subject","StudentSubject")">Schedule</a>
+                    <a class="nav-link" href="#">Schedule</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Assignment</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Attendance</a>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Main","Main")'">Logout</button>
                 </li>
             </ul>
         </div>
@@ -58,123 +56,128 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="@Url.Action("Menu","Menu")">Menu</a></li>
+            <li class="breadcrumb-item"><a href="../Menu/Menu">Menu</a></li>
             <li class="breadcrumb-item active" aria-current="page">Data</li>
         </ol>
     </nav>
-    
 
-            <!-- conten -->
-            <div class="container content">
-                <!-- schedule -->
-                <div class="row">
-                    <div class="col-md schedule_par">
-                        <table class="table">
-                           
-                                @*<thead>
 
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Monday</th>
-                                        <th>Tuesday</th>
-                                        <th>Wednesday</th>
-                                        <th>Thursday</th>
-                                        <th>Friday</th>
-                                        <th>Saturday</th>
+    <!-- conten -->
+    <div class="container content">
+        <!-- schedule -->
+        <div class="row">
+            <div class="col-md schedule_par">
+                <table class="table">
 
-                                    </tr>
-         
-                                </thead>*@
-                            <tbody>
-                                <tr>
-                                    <th>
-                                       Time
-                                    </th>
-                                    <th>
-                                       Day
-                                    </th>
-                                    <th>
-                                       Subject
-                                    </th>
-                                    <th>
-                                      Lecture
-                                    </th>
-                                    <th></th>
-                                </tr>
+                    @*<thead>
 
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>
-                                            <br />
-                                            <h3>
-                                            @Html.DisplayFor(modelItem => item.tbl_time.times)
-                                            </h3>
-                                        </td>
-                                        <td>
-                                            <br />
-                                            @Html.DisplayFor(modelItem => item.tbl_day.day)
-                                        </td>
-                                       
-                                        <td>
-                                            <br />
-                                            <a href="../../lesson/@item.sub_id">
-                                             @Html.DisplayFor(modelItem => item.tbl_subject.sub_name)
-                                            </a>
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.tbl_teacher.tea_name)<br />
-                                            @Html.DisplayFor(modelItem => item.tbl_teacher.tea_email)<br />
-                                            @Html.DisplayFor(modelItem => item.tbl_teacher.tea_phone)<br />
-                                        </td>
-                                        
-                                    </tr>
-                                }
-                                </tbody>
-                            
-                            </table>
-                    </div>
-                </div>
-                <!-- end schedule -->
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Monday</th>
+                                                                <th>Tuesday</th>
+                                                                <th>Wednesday</th>
+                                                                <th>Thursday</th>
+                                                                <th>Friday</th>
+                                                                <th>Saturday</th>
+
+                        Ridh 012 Rupp, [20.02.19 14:23]
+                        </tr>
+
+                                                        </thead>*@
+                    @Session["Mis"]
+                    <tbody>
+                        <tr>
+                            <th>
+                                Time
+                            </th>
+                            <th>
+                                Day
+                            </th>
+                            <th>
+                                Subject
+                            </th>
+                            <th>
+                                Lecture
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <br />
+                                    <h3>
+                                        @Html.DisplayFor(modelItem => item.tbl_time.times)
+                                    </h3>
+                                </td>
+                                <td>
+                                    <br />
+                                    @Html.DisplayFor(modelItem => item.tbl_day.day)
+                                </td>
+
+                                <td>
+                                    <br />
+                                    <a href="../../lesson/@item.sub_id">
+                                        @Html.DisplayFor(modelItem => item.tbl_subject.sub_name)
+                                    </a>
+                                </td>
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.tbl_teacher.tea_name)<br />
+                                    @Html.DisplayFor(modelItem => item.tbl_teacher.tea_email)<br />
+                                    @Html.DisplayFor(modelItem => item.tbl_teacher.tea_phone)<br />
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
             </div>
-            <!--end content-->
-            <!-- Footer -->
-            <footer class="page-footer font-small cyan darken-3 special-color-dark ">
-                <center>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 py-5">
-                                <div class="flex-center">
-                                    <a class="fb-ic">
-                                        <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                                    </a>
-                                    <a class="tw-ic">
-                                        <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                                    </a>
-                                    <a class="gplus-ic">
-                                        <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                                    </a>
-                                    <a class="li-ic">
-                                        <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                                    </a>
-                                    <a class="ins-ic">
-                                        <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                                    </a>
-                                    <a class="pin-ic">
-                                        <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
-                                    </a>
-                                </div>
-                            </div>
+        </div>
+        <!-- end schedule -->
+    </div>
+    <!--end content-->
+    <!-- Footer -->
+    <footer class="page-footer font-small cyan darken-3 special-color-dark ">
+        <center>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 py-5">
+                        <div class="flex-center">
+                            <a class="fb-ic">
+                                <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                            <a class="tw-ic">
+                                <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                            <a class="gplus-ic">
+                                <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                            <a class="li-ic">
+                                <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                            <a class="ins-ic">
+                                <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+
+                                Ridh 012 Rupp, [20.02.19 14:23]
+                            </a>
+                            <a class="pin-ic">
+                                <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+                            </a>
                         </div>
                     </div>
-                    <div class="footer-copyright text-center py-3">
-                        <span>2018 © Royal University of Phnom Penh</span>
-                    </div>
-                </center>
-            </footer>
-    </body>
+                </div>
+            </div>
+            <div class="footer-copyright text-center py-3">
+                <span>2018 © Royal University of Phnom Penh</span>
+            </div>
+        </center>
+    </footer>
+</body>
 
 </html>
 <script>
-    
+
 </script>
