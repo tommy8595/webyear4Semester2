@@ -14,7 +14,7 @@ namespace web.Controllers
     {
         private web_projectEntities1 db = new web_projectEntities1();
         // GET: Lesson
-        public ActionResult SCL(int subject_id=1, int teacher_id=2 )
+        public ActionResult SCL(int subject_id, int teacher_id)
         {
             string q = "Data Source=.;Initial Catalog=web_project;Integrated Security=True";
             SqlConnection con = new SqlConnection(q);

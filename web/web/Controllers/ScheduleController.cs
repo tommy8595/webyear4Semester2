@@ -26,7 +26,7 @@ namespace web.Controllers
             {
                 Response.Write(e.Message);
             }
-
+            //session
             var tbl_schedule = db.tbl_schdedule.Where(t => t.class_id == a).OrderBy(t => t.sch_days).ThenBy(t => t.sch_times).ToList();
             foreach (var item in tbl_schedule)
             {

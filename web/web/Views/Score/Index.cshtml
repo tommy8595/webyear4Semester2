@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<web.Models.tbl_schdedule>
+﻿@model IEnumerable<web.Models.tbl_score>
 @{
     Layout = null;
 }
@@ -21,7 +20,7 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 
@@ -29,7 +28,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="~/img/logo1.png" alt="" height="90px" width="190px">
+            <img src="img/logo1.png" alt="" height="90px" width="190px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,6 +48,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Attendance</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Score</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -56,90 +58,96 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="../Menu/Menu">Menu</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data</li>
+            <li class="breadcrumb-item"><a href="#">Menu</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Assignment&Homework</li>
         </ol>
     </nav>
 
-
-    <!-- conten -->
-    <div class="container content">
-        <!-- schedule -->
+    <div class="container">
+        <!-- subject -->
         <div class="row">
-            <div class="col-md schedule_par">
-                <table class="table">
-
-                    @*<thead>
-
-                                                            <tr>
-                                                                <th>#</th>
-                                                                <th>Monday</th>
-                                                                <th>Tuesday</th>
-                                                                <th>Wednesday</th>
-                                                                <th>Thursday</th>
-                                                                <th>Friday</th>
-                                                                <th>Saturday</th>
-
-                        Ridh 012 Rupp, [20.02.19 14:23]
-                        </tr>
-
-                                                        </thead>*@
-                    @Session["ooad"]
-                    <tbody>
-                        <tr>
-                            <th>
-                                Time
-                            </th>
-                            <th>
-                                Day
-                            </th>
-                            <th>
-                                Subject
-                            </th>
-                            <th>
-                                Lecture
-                            </th>
-                            <th></th>
-                        </tr>
-
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    <br />
-                                    <h3>
-                                        @Html.DisplayFor(modelItem => item.tbl_time.times)
-                                    </h3>
-                                </td>
-                                <td>
-                                    <br />
-                                    @Html.DisplayFor(modelItem => item.tbl_day.day)
-                                </td>
-
-                                <td>
-                                    <br />
-                                    <a href="../../lesson/@item.sub_id">
-                                        @Html.DisplayFor(modelItem => item.tbl_subject.sub_name)
-                                    </a>
-                                </td>
-                                <td>
-
-                                    @Html.DisplayFor(modelItem => item.tbl_teacher.tea_name)<br />
-                                    @Html.DisplayFor(modelItem => item.tbl_teacher.tea_email)<br />
-                                    @Html.DisplayFor(modelItem => item.tbl_teacher.tea_phone)<br />
-                                </td>
-
-                            </tr>
-                        }
-                    </tbody>
-
-                </table>
+            <div class="col ">
+                <div class="">
+                    <a href="#">
+                        <button class="btn btn-primary scoreBack">OOAD</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="">
+                    <a href="#">
+                        <button class="btn btn-primary scoreBack">WEB</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="">
+                    <a href="#">
+                        <button class="btn btn-primary scoreBack">SE</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="">
+                    <a href="#">
+                        <button class="btn btn-primary scoreBack">Linux</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="">
+                    <a href="#">
+                        <button class="btn btn-primary scoreBack">MIS</button>
+                    </a>
+                </div>
             </div>
         </div>
-        <!-- end schedule -->
+        <!-- end subject -->
+        <!-- score -->
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.attandance)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.homework)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.assignment)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.final_exam)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.attandance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.homework)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.assignment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.final_exam)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+            }
+
+        </table>
+        <!-- end score -->
     </div>
     <!--end content-->
-    <!-- Footer -->
+    <!--footer-->
     <footer class="page-footer font-small cyan darken-3 special-color-dark ">
         <center>
             <div class="container">
@@ -160,8 +168,6 @@
                             </a>
                             <a class="ins-ic">
                                 <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-
-                                Ridh 012 Rupp, [20.02.19 14:23]
                             </a>
                             <a class="pin-ic">
                                 <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
@@ -178,6 +184,3 @@
 </body>
 
 </html>
-<script>
-
-</script>

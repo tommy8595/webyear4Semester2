@@ -18,7 +18,7 @@ namespace web.Models
     public partial class web_projectEntities1 : DbContext
     {
         public web_projectEntities1()
-            : base("name=web_projectEntities11")
+            : base("name=web_projectEntities1")
         {
         }
     

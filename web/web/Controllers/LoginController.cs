@@ -28,7 +28,13 @@ namespace web.Controllers
                 {
                     Session.Add("STU_ID", _queryStudent.SingleOrDefault().stu_id);
                     Session.Add("CLASS_ID", _queryStudent.SingleOrDefault().class_id);
-              
+                    int a = int.Parse(_queryStudent.SingleOrDefault().class_id.ToString());
+                    var tbl_schedule = db.tbl_schdedule.Where(t => t.class_id == a).OrderBy(t => t.sch_days).ThenBy(t => t.sch_times).ToList();
+                    foreach (var item in tbl_schedule)
+                    {
+                        if (Session[item.tbl_subject.sub_name.ToString()] == null)
+                            Session.Add(item.tbl_subject.sub_name.ToString(), item.tbl_subject.sub_id);
+                    }
                     return RedirectPermanent(Url.Action("Menu", "Menu"));
                 }
                 else
@@ -41,6 +47,11 @@ namespace web.Controllers
             {
                 Response.Write(ex.Message);
             }
+           
+        
+            //session
+           
+            
             return View();
         }
     }

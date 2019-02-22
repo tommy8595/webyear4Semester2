@@ -20,15 +20,15 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="@Url.Action("Main","Main")">
-            <img src="~/img/logo1.png" alt="" height="90px" width="190px">
+        <a class="navbar-brand" href="#">
+            <img src="img/logo1.png" alt="" height="90px" width="190px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,19 +37,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="@Url.Action("Subject","StudentSubject")">Subject <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Subject <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Schedule","Schedule")">Schedule</a>
+                    <a class="nav-link" href="#">Schedule</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Assignment</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Attendance</a>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Main","Main")'">Logout</button>
                 </li>
             </ul>
         </div>
@@ -58,115 +55,101 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="@Url.Action("Menu","Menu")">Menu</a></li>
+            <li class="breadcrumb-item"><a href="#">Menu</a></li>
             <li class="breadcrumb-item active" aria-current="page">Subjects</li>
         </ol>
     </nav>
     <!--content-->
-    <!-- <div class="container-fluid"> -->
-    <!--row1-->
-    <!-- <div class="row">
-          <div class="col-sm-3 mt-3 ml-5 content">
-              <div class="box">
-                  <div class="float-left"><img class="card-img-top img-fluid" src="img/testsubject.jpeg"></div>
-                  <div>
-                      <h4 class="card-text">Object Oriented Analaysis and Design</h4>
-                  </div>
-              </div>
-          </div>
-          <div class="col-sm-3 mt-3 content">
-              <div class="box">
-                  <div class="float-left"><img class="card-img-top img-fluid" src="img/testsubject.jpeg"></div>
-                  <div>
-                      <h4 class="card-text">Web Application Development</h4>
-                  </div>
-              </div>
-          </div>
-          <div class="col-sm-3 mt-3 content">
-              <div class="box">
-                  <div class="float-left"><img class="card-img-top img-fluid" src="img/testsubject.jpeg"></div>
-                  <div>
-                      <h4 class="card-text">Software Engineering and IT Project management</h4>
-                  </div>
-              </div>
-          </div>
-        </div> -->
-    <!--row2-->
     <!-- Vuthy Test -->
     <div class="container">
         <div class="containerMargin">
             <div class="row">
                 <div class="col-md-4">
-                    <a href="">
-                    <div class="SubjectBackground">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="~/img/ooad.png" class="img-fluid">
-                            </div>
-                            <div class="col-md-8">
-                                <p class="text-white" style="padding: 13px;">Object Oriented Analysis and Design</p>
+                    @{
+                        int a =int.Parse(Session["ooad"].ToString());
+                    }
+                    <a href="../SubjectChapterLesson/SCL?subject_id=1&teacher_id=@a">
+                        <div class="SubjectBackground">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="~/img/ooad.png" class="img-fluid">
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="text-white" style="padding: 13px;">Object Oriented Analysis and Design</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="">
-                    <div class="SubjectBackground">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="~/img/web.png" class="img-fluid">
-                            </div>
-                            <div class="col-md-8">
-                                <p class="text-white" style="padding: 13px;">Web Application Development</p>
+                    @{
+                        int b = int.Parse(Session["web"].ToString());
+                    }
+                    <a href="../SubjectChapterLesson/SCL?subject_id=1&teacher_id=@b">
+                        <div class="SubjectBackground">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="~/img/web.png" class="img-fluid">
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="text-white" style="padding: 13px;">Web Application Development</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="">
-                    <div class="SubjectBackground">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="~/img/SE.png" class="img-fluid">
-                            </div>
-                            <div class="col-md-8">
-                                <p class="text-white" style="padding: 9px;">Software Engineering and IT Project Management</p>
+                    @{
+                        int c = int.Parse(Session["se"].ToString());
+                    }
+                    <a href="../SubjectChapterLesson/SCL?subject_id=1&teacher_id=@c">
+                        <div class="SubjectBackground">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="~/img/SE.png" class="img-fluid">
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="text-white" style="padding: 9px;">Software Engineering and IT Project Management</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </a>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-4">
-                    <a href="">
-                    <div class="SubjectBackground">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="~/img/Linux.png" class="img-fluid">
-                            </div>
-                            <div class="col-md-8">
-                                <p class="text-white" style="padding: 13px;">Linux Sytem Administration</p>
+                    @{
+                         int d = int.Parse(Session["linux"].ToString());
+                    }
+                    <a href="../SubjectChapterLesson/SCL?subject_id=1&teacher_id=@d">
+                        <div class="SubjectBackground">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="~/img/Linux.png" class="img-fluid">
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="text-white" style="padding: 13px;">Linux Sytem Administration</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="">
-                    <div class="SubjectBackground">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="~/img/MIS.png" class="img-fluid">
-                            </div>
-                            <div class="col-md-8">
-                                <p class="text-white" style="padding: 13px;">Management Information System</p>
+                    @{
+                        int e = int.Parse(Session["mis"].ToString());
+                    }
+                    <a href="../SubjectChapterLesson/SCL?subject_id=1&teacher_id=@e">
+                        <div class="SubjectBackground">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="~/img/MIS.png" class="img-fluid">
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="text-white" style="padding: 13px;">Management Information System</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </a>
                 </div>
             </div>
