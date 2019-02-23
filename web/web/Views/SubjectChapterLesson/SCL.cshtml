@@ -74,18 +74,18 @@
                              class="img-fluid img-border-radius">
                     </div>
                     <div class="col-md-8">
-                        <p><b>SAN Vuthy</b></p>
-                        <p>Professor of W.A.D</p>
-                        <p><span>Age: 35</span> <span>Sex: Male</span></p>
-                        <p>Nationality: Khmer</p>
-                        <p>Marrital Status: Married</p>
+                        <p><b>@Model.Rows[Model.Rows.Count - 1]["tea_name"].ToString()</b></p>
+                        <p>@Model.Rows[Model.Rows.Count - 1]["tea_email"].ToString()</p>
+                        <p><span>Age: 30</span> <span>Sex: @Model.Rows[Model.Rows.Count - 1]["tea_gender"].ToString()</span></p>
+                        <p>Date of birth: @Model.Rows[Model.Rows.Count - 1]["tea_dob"].ToString()</p>
+                        <p>Address: @Model.Rows[Model.Rows.Count - 1]["tea_address"].ToString()</p>
                     </div>
                 </div>
             </div>
             <section class="subDetailContent">
                 <p><b>Description</b></p>
                 <p>
-                    @ViewBag.sub_description
+                    @Model.Rows[Model.Rows.Count - 2]["sub_description"].ToString()
                 </p>
             </section>
         </div>
@@ -94,38 +94,64 @@
             <div class="col-sm-12 col-md-12 col-lg-5">
                 <div class="accordion" id="accordionExample">
                     <!--Drop Box 01-->
-                    @{ int n = 1;
-                        while (n < Model.Rows.Count - 3)
+                    @{
+                        int n = 0;
+                        do
                         {
-                            if (int.Parse(Model.Rows[n]["chap_id"].ToString()) != int.Parse(Model.Rows[n + 1]["chap_id"].ToString()))
+                            int v1; int v2;
+
+                            v1 = int.Parse(Model.Rows[n]["chap_id"].ToString());
+                            if (Model.Rows[n + 1]["chap_id"].ToString() == string.Empty)
+                            {   
+                       <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                    CHAPTER @Model.Rows[n]["chap_id"] : @Model.Rows[n]["chap_name"].ToString()
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                @Model.Rows[n]["chap_description"].ToString()
+                            </div>
+                        </div>
+                    </div>
+                                break;
+                            }
+                            else
+                            {
+                                v2 = int.Parse(Model.Rows[n + 1]["chap_id"].ToString());
+                            }
+                            if (v1 != v2)
                             {
                                 <div class="card">
                                     <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
-                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsTwo"
                                                     aria-expanded="true" aria-controls="collapseTwo">
-                                                @Model.Rows[n]["chap_name"].ToString();
+                                                CHAPTER @Model.Rows[n]["chap_id"] : @Model.Rows[n]["chap_name"].ToString()
                                             </button>
                                         </h2>
                                     </div>
 
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                         <div class="card-body">
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                            brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                                            aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                                            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                                            sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                                            beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
-                                            of them accusamus labore sustainable VHS.
+                                           @Model.Rows[n]["chap_description"].ToString()
                                         </div>
                                     </div>
                                 </div>
+                                n++;
                             }
 
-                            n++;
-                        }
+                            else if (int.Parse(Model.Rows[n]["chap_id"].ToString()) == int.Parse(Model.Rows[n + 1]["chap_id"].ToString()))
+                            {
+                                n++; 
+
+                            }
+                        } while (n < Model.Rows.Count - 2);
                     }
                    
                 </div>
