@@ -20,16 +20,30 @@ namespace web.Controllers
         public ActionResult Index()
         {
             //var tbl_score = db.tbl_score.Include(t => t.tbl_student).Include(t => t.tbl_teacher);
-            var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id  where sc.stu_id == (int)Session["STU_ID"] && sc.tbl_teacher.tea_id == (int)Session["ooad"] select sc;
-            scores = _queryScore.ToList();
-            for (int i = 0; i < scores.Count(); i++)
+            try
             {
-                scores.ElementAt(i).attandance = 0;
-                scores.ElementAt(i).assignment = 0;
-                scores.ElementAt(i).homework = 0;
-                scores.ElementAt(i).final_exam = 0;
+                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where sc.stu_id == (int)Session["STU_ID"] && sc.tbl_teacher.tea_id == (int)Session["ooad"] select sc;
+                scores = _queryScore.ToList();
+                for (int i = 0; i < scores.Count(); i++)
+                {
+                    scores.ElementAt(i).attandance = 0;
+                    scores.ElementAt(i).assignment = 0;
+                    scores.ElementAt(i).homework = 0;
+                    scores.ElementAt(i).final_exam = 0;
+                }
+                return View(scores);
             }
-            return View(scores);
+            catch (Exception)
+            {
+                //Initialize when schedule ain't set;
+                score.attandance = 0;
+                score.assignment = 0;
+                score.homework = 0;
+                score.final_exam = 0;
+                List<tbl_score> scores = new List<tbl_score>();
+                scores.Add(score);
+                return View("Index", scores);
+            }
         }
         public ActionResult OOAD()
         {
