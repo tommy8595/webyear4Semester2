@@ -10,19 +10,15 @@
 namespace web.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class tbl_score
+    public partial class fn_get_chapter_lesson_Result
     {
-        public int stu_id { get; set; }
         public int tea_id { get; set; }
-        public double attandance { get; set; }
-        public double homework { get; set; }
-        public double assignment { get; set; }
-        public double final_exam { get; set; }
-        public int score_id { get; set; }
-    
-        public virtual tbl_student tbl_student { get; set; }
-        public virtual tbl_teacher tbl_teacher { get; set; }
+        public int chap_id { get; set; }
+        public string chap_description { get; set; }
+        public string chap_name { get; set; }
+        public string chap_file_path_pdf { get; set; }
+        public string les_file_path_video { get; set; }
+        public string les_name { get; set; }
     }
 }
