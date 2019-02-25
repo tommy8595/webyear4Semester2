@@ -26,7 +26,7 @@ namespace web.Models
         public int sub_id { get; set; }
         public string sub_name { get; set; }
         public string sub_description { get; set; }
-        public string sub_picture { get; set; }
+        public string sub_project1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_attandance> tbl_attandance { get; set; }

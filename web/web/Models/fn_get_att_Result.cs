@@ -10,9 +10,8 @@
 namespace web.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class tbl_attandance
+    public partial class fn_get_att_Result
     {
         public int sub_id { get; set; }
         public int stu_id { get; set; }
@@ -21,9 +20,5 @@ namespace web.Models
         public string att_type { get; set; }
         public string att_description { get; set; }
         public int att_id { get; set; }
-    
-        public virtual tbl_student tbl_student { get; set; }
-        public virtual tbl_subject tbl_subject { get; set; }
-        public virtual tbl_teacher tbl_teacher { get; set; }
     }
 }
