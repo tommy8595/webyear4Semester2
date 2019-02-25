@@ -165,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeworkController.cs" />
     <Compile Include="Controllers\ScoreController.cs" />
     <Compile Include="Controllers\SubjectChapterLessonController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -268,6 +269,7 @@
     <Content Include="Views\SubjectChapterLesson\SCL.cshtml" />
     <Content Include="Views\Score\Index.cshtml" />
     <Content Include="Views\Subject\Subject.cshtml" />
+    <Content Include="Views\Homework\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
