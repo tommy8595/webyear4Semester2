@@ -147,5 +147,47 @@ namespace web.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        [DbFunction("web_projectEntities1", "fn_get_chapter_lesson")]
+        public virtual IQueryable<fn_get_chapter_lesson_Result> fn_get_chapter_lesson(Nullable<int> sid, Nullable<int> tid)
+        {
+            var sidParameter = sid.HasValue ?
+                new ObjectParameter("sid", sid) :
+                new ObjectParameter("sid", typeof(int));
+    
+            var tidParameter = tid.HasValue ?
+                new ObjectParameter("tid", tid) :
+                new ObjectParameter("tid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_chapter_lesson_Result>("[web_projectEntities1].[fn_get_chapter_lesson](@sid, @tid)", sidParameter, tidParameter);
+        }
+    
+        [DbFunction("web_projectEntities1", "fn_get_att")]
+        public virtual IQueryable<fn_get_att_Result> fn_get_att(Nullable<int> st, Nullable<int> su)
+        {
+            var stParameter = st.HasValue ?
+                new ObjectParameter("st", st) :
+                new ObjectParameter("st", typeof(int));
+    
+            var suParameter = su.HasValue ?
+                new ObjectParameter("su", su) :
+                new ObjectParameter("su", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_att_Result>("[web_projectEntities1].[fn_get_att](@st, @su)", stParameter, suParameter);
+        }
+    
+        [DbFunction("web_projectEntities1", "fn_get_chapter_lesson1")]
+        public virtual IQueryable<fn_get_chapter_lesson1_Result> fn_get_chapter_lesson1(Nullable<int> sid, Nullable<int> tid)
+        {
+            var sidParameter = sid.HasValue ?
+                new ObjectParameter("sid", sid) :
+                new ObjectParameter("sid", typeof(int));
+    
+            var tidParameter = tid.HasValue ?
+                new ObjectParameter("tid", tid) :
+                new ObjectParameter("tid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_chapter_lesson1_Result>("[web_projectEntities1].[fn_get_chapter_lesson1](@sid, @tid)", sidParameter, tidParameter);
+        }
     }
 }

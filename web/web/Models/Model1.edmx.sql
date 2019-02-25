@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/24/2019 09:33:02
--- Generated from EDMX file: C:\Users\SEAM SEAK\Documents\@DATA@\web\web\web\Models\Model1.edmx
+-- Date Created: 02/23/2019 21:15:28
+-- Generated from EDMX file: D:\AssignmentWebS2\web\web\Models\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,26 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK__tbl_attan__stu_i__36B12243]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__stu_i__36B12243];
+IF OBJECT_ID(N'[dbo].[FK__tbl_attan__stu_i__75A278F5]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__stu_i__75A278F5];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_attan__sub_i__37A5467C]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__sub_i__37A5467C];
+IF OBJECT_ID(N'[dbo].[FK__tbl_attan__sub_i__2A4B4B5E]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__sub_i__2A4B4B5E];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_attan__tea_i__38996AB5]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__tea_i__38996AB5];
+IF OBJECT_ID(N'[dbo].[FK__tbl_attan__tea_i__2B3F6F97]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_attandance] DROP CONSTRAINT [FK__tbl_attan__tea_i__2B3F6F97];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_homew__hom_i__3A81B327]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_homework_detail] DROP CONSTRAINT [FK__tbl_homew__hom_i__3A81B327];
+IF OBJECT_ID(N'[web_projectModelStoreContainer].[FK__tbl_homew__hom_i__2F10007B]', 'F') IS NOT NULL
+    ALTER TABLE [web_projectModelStoreContainer].[tbl_homework_detail] DROP CONSTRAINT [FK__tbl_homew__hom_i__2F10007B];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_homew__stu_i__3B75D760]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_homework_detail] DROP CONSTRAINT [FK__tbl_homew__stu_i__3B75D760];
+IF OBJECT_ID(N'[web_projectModelStoreContainer].[FK__tbl_homew__stu_i__47DBAE45]', 'F') IS NOT NULL
+    ALTER TABLE [web_projectModelStoreContainer].[tbl_homework_detail] DROP CONSTRAINT [FK__tbl_homew__stu_i__47DBAE45];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_homew__sub_i__398D8EEE]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_homework] DROP CONSTRAINT [FK__tbl_homew__sub_i__398D8EEE];
+IF OBJECT_ID(N'[dbo].[FK__tbl_homew__sub_i__2E1BDC42]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_homework] DROP CONSTRAINT [FK__tbl_homew__sub_i__2E1BDC42];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_lesso__chap___4C6B5938]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_lesson] DROP CONSTRAINT [FK__tbl_lesso__chap___4C6B5938];
+IF OBJECT_ID(N'[dbo].[FK__tbl_lesso__chap___30F848ED]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_lesson] DROP CONSTRAINT [FK__tbl_lesso__chap___30F848ED];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbl_lesso__sub_i__1A14E395]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[tbl_chapter] DROP CONSTRAINT [FK__tbl_lesso__sub_i__1A14E395];
@@ -44,44 +44,59 @@ GO
 IF OBJECT_ID(N'[dbo].[FK__tbl_lesso__tea_i__1B0907CE]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[tbl_chapter] DROP CONSTRAINT [FK__tbl_lesso__tea_i__1B0907CE];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_schde__class__3E52440B]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__class__3E52440B];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__class__31EC6D26]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__class__31EC6D26];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__class__32E0915F]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__class__32E0915F];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__class__33D4B598]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__class__33D4B598];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_d__17036CC0]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_d__17036CC0];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_t__1F98B2C1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_t__1F98B2C1];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_d__35BCFE0A]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_d__35BCFE0A];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sub_i__3F466844]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sub_i__3F466844];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_t__36B12243]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_t__36B12243];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_schde__tea_i__403A8C7D]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__tea_i__403A8C7D];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_t__37A5467C]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_t__37A5467C];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_score__stu_i__412EB0B6]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_score] DROP CONSTRAINT [FK__tbl_score__stu_i__412EB0B6];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sch_t__38996AB5]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sch_t__38996AB5];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_score__tea_i__4222D4EF]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_score] DROP CONSTRAINT [FK__tbl_score__tea_i__4222D4EF];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sub_i__398D8EEE]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sub_i__398D8EEE];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_stude__class__4316F928]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_student] DROP CONSTRAINT [FK__tbl_stude__class__4316F928];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__sub_i__3A81B327]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__sub_i__3A81B327];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbl_teach__tea_i__2645B050]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_teacher] DROP CONSTRAINT [FK__tbl_teach__tea_i__2645B050];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__tea_i__3B75D760]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__tea_i__3B75D760];
 GO
-IF OBJECT_ID(N'[dbo].[FK_tbl_studenttbl_user]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbl_user] DROP CONSTRAINT [FK_tbl_studenttbl_user];
+IF OBJECT_ID(N'[dbo].[FK__tbl_schde__tea_i__3C69FB99]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_schdedule] DROP CONSTRAINT [FK__tbl_schde__tea_i__3C69FB99];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_score__stu_i__787EE5A0]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_score] DROP CONSTRAINT [FK__tbl_score__stu_i__787EE5A0];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_score__tea_i__797309D9]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_score] DROP CONSTRAINT [FK__tbl_score__tea_i__797309D9];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_stude__class__3B75D760]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_student] DROP CONSTRAINT [FK__tbl_stude__class__3B75D760];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbl_teach__tea_i__403A8C7D]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbl_teacher] DROP CONSTRAINT [FK__tbl_teach__tea_i__403A8C7D];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[sysdiagrams]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[sysdiagrams];
-GO
 IF OBJECT_ID(N'[dbo].[tbl_attandance]', 'U') IS NOT NULL
     DROP TABLE [dbo].[tbl_attandance];
 GO
@@ -96,9 +111,6 @@ IF OBJECT_ID(N'[dbo].[tbl_day]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[tbl_homework]', 'U') IS NOT NULL
     DROP TABLE [dbo].[tbl_homework];
-GO
-IF OBJECT_ID(N'[dbo].[tbl_homework_detail]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbl_homework_detail];
 GO
 IF OBJECT_ID(N'[dbo].[tbl_lesson]', 'U') IS NOT NULL
     DROP TABLE [dbo].[tbl_lesson];
@@ -124,11 +136,8 @@ GO
 IF OBJECT_ID(N'[dbo].[tbl_user]', 'U') IS NOT NULL
     DROP TABLE [dbo].[tbl_user];
 GO
-IF OBJECT_ID(N'[dbo].[vw_schedule]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[vw_schedule];
-GO
-IF OBJECT_ID(N'[dbo].[vw_schedules]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[vw_schedules];
+IF OBJECT_ID(N'[web_projectModelStoreContainer].[tbl_homework_detail]', 'U') IS NOT NULL
+    DROP TABLE [web_projectModelStoreContainer].[tbl_homework_detail];
 GO
 
 -- --------------------------------------------------
@@ -224,11 +233,11 @@ GO
 CREATE TABLE [dbo].[tbl_score] (
     [stu_id] int  NOT NULL,
     [tea_id] int  NOT NULL,
-    [stu_name] nvarchar(max)  NULL,
     [attandance] float  NOT NULL,
     [homework] float  NOT NULL,
     [assignment] float  NOT NULL,
-    [final_exam] float  NOT NULL
+    [final_exam] float  NOT NULL,
+    [score_id] int IDENTITY(1,1) NOT NULL
 );
 GO
 
@@ -241,7 +250,7 @@ CREATE TABLE [dbo].[tbl_student] (
     [stu_pob] nvarchar(max)  NOT NULL,
     [stu_address] nvarchar(max)  NOT NULL,
     [stu_phone] nvarchar(13)  NULL,
-    [stu_email] nvarchar(max)  NOT NULL,
+    [stu_email] nvarchar(max)  NULL,
     [stu_emergency_number] nvarchar(13)  NOT NULL,
     [class_id] int  NULL
 );
@@ -251,7 +260,8 @@ GO
 CREATE TABLE [dbo].[tbl_subject] (
     [sub_id] int IDENTITY(1,1) NOT NULL,
     [sub_name] nvarchar(max)  NULL,
-    [sub_description] nvarchar(max)  NULL
+    [sub_description] nvarchar(max)  NULL,
+    [sub_picture] nvarchar(max)  NULL
 );
 GO
 
@@ -264,7 +274,8 @@ CREATE TABLE [dbo].[tbl_teacher] (
     [tea_dob] datetime  NOT NULL,
     [tea_pob] nvarchar(max)  NOT NULL,
     [tea_address] nvarchar(max)  NULL,
-    [tea_phone] nvarchar(13)  NULL
+    [tea_phone] nvarchar(13)  NULL,
+    [tea_picture] nvarchar(max)  NULL
 );
 GO
 
@@ -367,10 +378,10 @@ ADD CONSTRAINT [PK_tbl_schdedule]
     PRIMARY KEY CLUSTERED ([sch_id] ASC);
 GO
 
--- Creating primary key on [stu_id], [tea_id], [attandance], [homework], [assignment], [final_exam] in table 'tbl_score'
+-- Creating primary key on [stu_id], [tea_id], [attandance], [homework], [assignment], [final_exam], [score_id] in table 'tbl_score'
 ALTER TABLE [dbo].[tbl_score]
 ADD CONSTRAINT [PK_tbl_score]
-    PRIMARY KEY CLUSTERED ([stu_id], [tea_id], [attandance], [homework], [assignment], [final_exam] ASC);
+    PRIMARY KEY CLUSTERED ([stu_id], [tea_id], [attandance], [homework], [assignment], [final_exam], [score_id] ASC);
 GO
 
 -- Creating primary key on [stu_id] in table 'tbl_student'

@@ -1,10 +1,7 @@
-﻿@model IEnumerable<web.Models.tbl_score>
+﻿@model IEnumerable<web.Models.tbl_attandance>
+
 @{
     Layout = null;
-}
-@using web.Models;
-@{
-    web_projectEntities1 db = new web_projectEntities1();
 }
 
 <!DOCTYPE html>
@@ -26,16 +23,6 @@
           crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/style.css">
     <title>Document</title>
-    @*<script type="text/javascript">
-        function scoreOOAD() {
-            var f;
-            @{
-                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id select sc;
-            }
-            var table_data = "<tr><th>Attendance</th><th>Assignment</th><th>Homework</th><th>Final Exam</th></tr><tr><td>" + @_queryScore.SingleOrDefault().attandance + "</td><td>"+@_queryScore.SingleOrDefault().assignment +"</td><td>"+@_queryScore.SingleOrDefault().homework+"</td><td>"+@_queryScore.SingleOrDefault().final_exam+"</td></tr>";
-            document.getElementById('table_score').innerHTML = table_data;
-        }
-    </script>*@
 </head>
 
 <body>
@@ -62,9 +49,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Attendance</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Score</a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -72,7 +56,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="../Menu/Menu">Menu</a></li>
+            <li class="breadcrumb-item"><a href="#">Menu</a></li>
             <li class="breadcrumb-item active" aria-current="page">Assignment&Homework</li>
         </ol>
     </nav>
@@ -83,85 +67,74 @@
             <div class="col ">
                 <div class="">
                     <a href="#">
-                        <button class="btn btn-primary scoreBack" name="btnSub" onclick="location.href='@Url.Action("OOAD","Score")'">OOAD</button>
+                        <button class="btn btn-primary scoreBack">OOAD</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
                     <a href="#">
-                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("WEB","Score")'">WEB</button>
+                        <button class="btn btn-primary scoreBack">WEB</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
                     <a href="#">
-                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("SE","Score")'">SE</button>
+                        <button class="btn btn-primary scoreBack">SE</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
                     <a href="#">
-                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("Linux","Score")'">Linux</button>
+                        <button class="btn btn-primary scoreBack">Linux</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
                     <a href="#">
-                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("MIS","Score")'">MIS</button>
+                        <button class="btn btn-primary scoreBack">MIS</button>
                     </a>
                 </div>
             </div>
         </div>
         <!-- end subject -->
-        <!-- score -->
-        <table class="table" id="table_score">
-            <tr>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.attandance)*@
-                    Attendance
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.homework)*@
-                    Homework
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.assignment)*@
-                    Assignment
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.final_exam)*@
-                    Final Exam
-                </th>
-            </tr>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.attandance)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.homework)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.assignment)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.final_exam)
-                    </td>
-                    @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>*@
-                </tr>
-            }
-
-        </table>
-        <!-- end score -->
+        <!-- attendance -->
+        <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.att_date)*@
+                Date
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.att_type)*@
+                Type
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.att_description)*@
+                Description
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.att_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.att_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.att_description)
+            </td>
+        </tr>
+    }
+    
+    </table>
+        <!-- end attendance -->
     </div>
     <!--end content-->
     <!--footer-->

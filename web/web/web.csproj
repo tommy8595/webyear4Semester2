@@ -165,7 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeworkController.cs" />
+    <Compile Include="Controllers\AttandanceController.cs" />
     <Compile Include="Controllers\ScoreController.cs" />
     <Compile Include="Controllers\SubjectChapterLessonController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -176,6 +176,15 @@
     <Compile Include="Controllers\tbl_schdeduleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_get_att_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_get_chapter_lesson1_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_get_chapter_lesson_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -269,7 +278,11 @@
     <Content Include="Views\SubjectChapterLesson\SCL.cshtml" />
     <Content Include="Views\Score\Index.cshtml" />
     <Content Include="Views\Subject\Subject.cshtml" />
-    <Content Include="Views\Homework\Index.cshtml" />
+    <Content Include="Views\Attandance\Create.cshtml" />
+    <Content Include="Views\Attandance\Delete.cshtml" />
+    <Content Include="Views\Attandance\Details.cshtml" />
+    <Content Include="Views\Attandance\Edit.cshtml" />
+    <Content Include="Views\Attandance\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

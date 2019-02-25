@@ -31,6 +31,7 @@ namespace web.Models
         public string tea_pob { get; set; }
         public string tea_address { get; set; }
         public string tea_phone { get; set; }
+        public Nullable<int> sub_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_attandance> tbl_attandance { get; set; }
