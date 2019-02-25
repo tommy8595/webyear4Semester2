@@ -147,5 +147,19 @@ namespace web.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        [DbFunction("web_projectEntities1", "fn_get_chapter_lesson")]
+        public virtual IQueryable<fn_get_chapter_lesson_Result> fn_get_chapter_lesson(Nullable<int> sid, Nullable<int> tid)
+        {
+            var sidParameter = sid.HasValue ?
+                new ObjectParameter("sid", sid) :
+                new ObjectParameter("sid", typeof(int));
+    
+            var tidParameter = tid.HasValue ?
+                new ObjectParameter("tid", tid) :
+                new ObjectParameter("tid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_chapter_lesson_Result>("[web_projectEntities1].[fn_get_chapter_lesson](@sid, @tid)", sidParameter, tidParameter);
+        }
     }
 }
