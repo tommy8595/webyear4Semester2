@@ -108,7 +108,7 @@
     <Content Include="css\login.css" />
     <Content Include="css\StudentSubject.css" />
     <Content Include="css\style.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="img\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\50268143_137652897187892_8225487598819213312_n.png" />
     <Content Include="img\50275070_414323362660412_3969083890752028672_n.jpg" />
@@ -134,9 +134,9 @@
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model1.edmx.sql" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="img\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="img\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="img\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="ClassDiagram1.cd" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -174,13 +174,11 @@
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\tbl_schdeduleController.cs" />
+    <Compile Include="Controllers\tbl_scoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\fn_get_att_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\fn_get_chapter_lesson1_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\fn_get_chapter_lesson_Result.cs">
@@ -200,12 +198,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -252,12 +244,6 @@
     <Compile Include="Models\tbl_user.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\vw_schedule.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vw_schedules.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +269,11 @@
     <Content Include="Views\Attandance\Details.cshtml" />
     <Content Include="Views\Attandance\Edit.cshtml" />
     <Content Include="Views\Attandance\Index.cshtml" />
+    <Content Include="Views\tbl_score\Create.cshtml" />
+    <Content Include="Views\tbl_score\Delete.cshtml" />
+    <Content Include="Views\tbl_score\Details.cshtml" />
+    <Content Include="Views\tbl_score\Edit.cshtml" />
+    <Content Include="Views\tbl_score\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -15,10 +15,10 @@ namespace web.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class web_projectEntities1 : DbContext
+    public partial class web_projectEntities : DbContext
     {
-        public web_projectEntities1()
-            : base("name=web_projectEntities1")
+        public web_projectEntities()
+            : base("name=web_projectEntities")
         {
         }
     
@@ -42,127 +42,8 @@ namespace web.Models
         public virtual DbSet<tbl_teacher> tbl_teacher { get; set; }
         public virtual DbSet<tbl_time> tbl_time { get; set; }
         public virtual DbSet<tbl_user> tbl_user { get; set; }
-        public virtual DbSet<vw_schedule> vw_schedule { get; set; }
-        public virtual DbSet<vw_schedules> vw_schedules { get; set; }
     
-        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var versionParameter = version.HasValue ?
-                new ObjectParameter("version", version) :
-                new ObjectParameter("version", typeof(int));
-    
-            var definitionParameter = definition != null ?
-                new ObjectParameter("definition", definition) :
-                new ObjectParameter("definition", typeof(byte[]));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var versionParameter = version.HasValue ?
-                new ObjectParameter("version", version) :
-                new ObjectParameter("version", typeof(int));
-    
-            var definitionParameter = definition != null ?
-                new ObjectParameter("definition", definition) :
-                new ObjectParameter("definition", typeof(byte[]));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var new_diagramnameParameter = new_diagramname != null ?
-                new ObjectParameter("new_diagramname", new_diagramname) :
-                new ObjectParameter("new_diagramname", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
-        }
-    
-        public virtual int sp_upgraddiagrams()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
-    
-        [DbFunction("web_projectEntities1", "fn_get_chapter_lesson")]
-        public virtual IQueryable<fn_get_chapter_lesson_Result> fn_get_chapter_lesson(Nullable<int> sid, Nullable<int> tid)
-        {
-            var sidParameter = sid.HasValue ?
-                new ObjectParameter("sid", sid) :
-                new ObjectParameter("sid", typeof(int));
-    
-            var tidParameter = tid.HasValue ?
-                new ObjectParameter("tid", tid) :
-                new ObjectParameter("tid", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_chapter_lesson_Result>("[web_projectEntities1].[fn_get_chapter_lesson](@sid, @tid)", sidParameter, tidParameter);
-        }
-    
-        [DbFunction("web_projectEntities1", "fn_get_att")]
+        [DbFunction("web_projectEntities", "fn_get_att")]
         public virtual IQueryable<fn_get_att_Result> fn_get_att(Nullable<int> st, Nullable<int> su)
         {
             var stParameter = st.HasValue ?
@@ -173,11 +54,11 @@ namespace web.Models
                 new ObjectParameter("su", su) :
                 new ObjectParameter("su", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_att_Result>("[web_projectEntities1].[fn_get_att](@st, @su)", stParameter, suParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_att_Result>("[web_projectEntities].[fn_get_att](@st, @su)", stParameter, suParameter);
         }
     
-        [DbFunction("web_projectEntities1", "fn_get_chapter_lesson1")]
-        public virtual IQueryable<fn_get_chapter_lesson1_Result> fn_get_chapter_lesson1(Nullable<int> sid, Nullable<int> tid)
+        [DbFunction("web_projectEntities", "fn_get_chapter_lesson")]
+        public virtual IQueryable<fn_get_chapter_lesson_Result> fn_get_chapter_lesson(Nullable<int> sid, Nullable<int> tid)
         {
             var sidParameter = sid.HasValue ?
                 new ObjectParameter("sid", sid) :
@@ -187,7 +68,7 @@ namespace web.Models
                 new ObjectParameter("tid", tid) :
                 new ObjectParameter("tid", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_chapter_lesson1_Result>("[web_projectEntities1].[fn_get_chapter_lesson1](@sid, @tid)", sidParameter, tidParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_chapter_lesson_Result>("[web_projectEntities].[fn_get_chapter_lesson](@sid, @tid)", sidParameter, tidParameter);
         }
     }
 }

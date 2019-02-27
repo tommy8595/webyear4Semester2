@@ -14,11 +14,11 @@ namespace web.Models
     public partial class fn_get_chapter_lesson_Result
     {
         public int tea_id { get; set; }
-        public int chap_id { get; set; }
-        public string chap_description { get; set; }
+        public Nullable<int> chap_id { get; set; }
         public string chap_name { get; set; }
+        public string chap_description { get; set; }
         public string chap_file_path_pdf { get; set; }
-        public string les_file_path_video { get; set; }
         public string les_name { get; set; }
+        public string les_file_path_video { get; set; }
     }
 }

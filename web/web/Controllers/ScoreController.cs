@@ -12,7 +12,7 @@ namespace web.Controllers
 {
     public class ScoreController : Controller
     {
-        private web_projectEntities1 db = new web_projectEntities1();
+        private web_projectEntities db = new web_projectEntities();
         IEnumerable<tbl_score> scores = null;
         tbl_score score = new tbl_score();
 

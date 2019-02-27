@@ -12,17 +12,18 @@ namespace web.Controllers
 {
     public class AttandanceController : Controller
     {
-        private web_projectEntities1 db = new web_projectEntities1();
-
+        private web_projectEntities db = new web_projectEntities();
+        [HttpGet]
         // GET: Attandance
-        public ActionResult Index()
+        public ActionResult Index(int id=1)
         {
-            var tbl_attandance = db.tbl_attandance.Include(t => t.tbl_student).Include(t => t.tbl_subject).Include(t => t.tbl_teacher);
+            int a = 1;
+            var tbl_attandance = db.fn_get_att(a, id);
             return View(tbl_attandance.ToList());
         }
 
         // GET: Attandance/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id=1)
         {
             if (id == null)
             {

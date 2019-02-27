@@ -19,6 +19,5 @@ namespace web.Models
         public Nullable<System.DateTime> att_date { get; set; }
         public string att_type { get; set; }
         public string att_description { get; set; }
-        public int att_id { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<web.Models.tbl_attandance>
+﻿@model IEnumerable<web.Models.fn_get_att_Result>
 
 @{
     Layout = null;
@@ -35,7 +35,7 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" "navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Subject <span class="sr-only">(current)</span></a>
@@ -66,35 +66,36 @@
         <div class="row">
             <div class="col ">
                 <div class="">
-                    <a href="#">
+                    <a href="?id=1">
                         <button class="btn btn-primary scoreBack">OOAD</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
-                    <a href="#">
+                    <a href="?id=2">
                         <button class="btn btn-primary scoreBack">WEB</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
-                    <a href="#">
+                    <a href="?id=3">
+    
                         <button class="btn btn-primary scoreBack">SE</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
-                    <a href="#">
+                    <a href="?id=4">
                         <button class="btn btn-primary scoreBack">Linux</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
-                    <a href="#">
+                    <a href="?id=5">
                         <button class="btn btn-primary scoreBack">MIS</button>
                     </a>
                 </div>
@@ -122,7 +123,7 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.att_date)
+                @item.att_date.Value.ToString("dd/MM/yy")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.att_type)

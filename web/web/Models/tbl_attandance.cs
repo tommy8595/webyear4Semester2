@@ -20,7 +20,6 @@ namespace web.Models
         public Nullable<System.DateTime> att_date { get; set; }
         public string att_type { get; set; }
         public string att_description { get; set; }
-        public int att_id { get; set; }
     
         public virtual tbl_student tbl_student { get; set; }
         public virtual tbl_subject tbl_subject { get; set; }

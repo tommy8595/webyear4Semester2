@@ -18,8 +18,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.sub_id, "sub_id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("sub_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.sub_id, "", new { @class = "text-danger" })
+                @try
+                {
+                    Html.DropDownList("sub_id", null, htmlAttributes: new { @class = "form-control" });
+                    Html.ValidationMessageFor(model => model.sub_id, "", new { @class = "text-danger" });
+                }
+                catch(Exception e)
+                {
+                    Response.Write(e);
+                }
+
+
             </div>
         </div>
 
