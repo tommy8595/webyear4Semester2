@@ -11,7 +11,7 @@ namespace web.Models
 {
     using System;
     
-    public partial class fn_get_att_Result
+    public partial class fn_get_att1_Result
     {
         public int sub_id { get; set; }
         public int stu_id { get; set; }

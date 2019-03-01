@@ -20,15 +20,15 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="~/css/style.css">
     <title>Document</title>
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="img/logo1.png" alt="" height="90px" width="190px">
+        <a class="navbar-brand" href="@Url.Action("Menu","Menu")">
+            <img src="~/img/logo1.png" alt="" height="90px" width="190px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,17 +36,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Subject <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="@Url.Action("Subject","Subject")">Subject <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Schedule</a>
+                    <a class="nav-link" href="@Url.Action("Schedule","Schedule")">Schedule</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index","Homework_Assignment")">Assignment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Assignment</a>
+                    <a class="nav-link" href="@Url.Action("Index","Attandance")">Attendance</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Attendance</a>
+                    <a class="nav-link" href="@Url.Action("Index","Score")">Score</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Main","Main")'">Logout</button>
                 </li>
             </ul>
         </div>
@@ -54,15 +59,14 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Menu</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Subjects</li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Menu","Menu")">Home</a></li>
+            <li class="breadcrumb-item" active" aria-current="page">Menu</li>
         </ol>
     </nav>
     <!--content-->
     <!-- Vuthy Test -->
-    <div class="container">
-        <div class="containerMargin">
+    <div class="container" style="margin-bottom:11em">
+        <div class="containerMargin" style="padding-top: 4em;"> 
             <div class="row">
                 <div class="col-md-4">
                     @{

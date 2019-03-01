@@ -44,7 +44,7 @@ namespace web.Models
         public virtual DbSet<tbl_user> tbl_user { get; set; }
     
         [DbFunction("web_projectEntities", "fn_get_att")]
-        public virtual IQueryable<fn_get_att_Result> fn_get_att(Nullable<int> st, Nullable<int> su)
+        public virtual IQueryable<fn_get_att1_Result> fn_get_att(Nullable<int> st, Nullable<int> su)
         {
             var stParameter = st.HasValue ?
                 new ObjectParameter("st", st) :
@@ -54,7 +54,7 @@ namespace web.Models
                 new ObjectParameter("su", su) :
                 new ObjectParameter("su", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_att_Result>("[web_projectEntities].[fn_get_att](@st, @su)", stParameter, suParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_att1_Result>("[web_projectEntities].[fn_get_att](@st, @su)", stParameter, suParameter);
         }
     
         [DbFunction("web_projectEntities", "fn_get_chapter_lesson")]
@@ -69,6 +69,34 @@ namespace web.Models
                 new ObjectParameter("tid", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_chapter_lesson_Result>("[web_projectEntities].[fn_get_chapter_lesson](@sid, @tid)", sidParameter, tidParameter);
+        }
+    
+        [DbFunction("web_projectEntities", "fn_get_att1")]
+        public virtual IQueryable<fn_get_att1_Result> fn_get_att1(Nullable<int> st, Nullable<int> su)
+        {
+            var stParameter = st.HasValue ?
+                new ObjectParameter("st", st) :
+                new ObjectParameter("st", typeof(int));
+    
+            var suParameter = su.HasValue ?
+                new ObjectParameter("su", su) :
+                new ObjectParameter("su", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_att1_Result>("[web_projectEntities].[fn_get_att1](@st, @su)", stParameter, suParameter);
+        }
+    
+        [DbFunction("web_projectEntities", "fn_get_chapter_lesson1")]
+        public virtual IQueryable<fn_get_chapter_lesson1_Result> fn_get_chapter_lesson1(Nullable<int> sid, Nullable<int> tid)
+        {
+            var sidParameter = sid.HasValue ?
+                new ObjectParameter("sid", sid) :
+                new ObjectParameter("sid", typeof(int));
+    
+            var tidParameter = tid.HasValue ?
+                new ObjectParameter("tid", tid) :
+                new ObjectParameter("tid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_get_chapter_lesson1_Result>("[web_projectEntities].[fn_get_chapter_lesson1](@sid, @tid)", sidParameter, tidParameter);
         }
     }
 }

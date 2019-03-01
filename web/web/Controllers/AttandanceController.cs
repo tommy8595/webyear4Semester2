@@ -15,15 +15,15 @@ namespace web.Controllers
         private web_projectEntities db = new web_projectEntities();
         [HttpGet]
         // GET: Attandance
-        public ActionResult Index(int id=1)
+        public ActionResult Index(int id = 1)
         {
-            int a = 1;
-            var tbl_attandance = db.fn_get_att(a, id);
+            int a = int.Parse(Session["STU_ID"].ToString());
+            var tbl_attandance = db.fn_get_att1(a, id);
             return View(tbl_attandance.ToList());
         }
 
         // GET: Attandance/Details/5
-        public ActionResult Details(int? id=1)
+        public ActionResult Details(int? id = 1)
         {
             if (id == null)
             {

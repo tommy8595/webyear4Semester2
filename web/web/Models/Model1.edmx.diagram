@@ -39,6 +39,7 @@
         <AssociationConnector Association="web_projectModel.FK__tbl_score__tea_i__4222D4EF" ManuallyRouted="false" />
         <AssociationConnector Association="web_projectModel.FK_tbl_studenttbl_user" ManuallyRouted="false" />
         <AssociationConnector Association="web_projectModel.FK__tbl_teach__tea_i__2645B050" ManuallyRouted="false" />
+        <AssociationConnector Association="web_projectModel.FK__tbl_score__sub_i__76969D2E" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

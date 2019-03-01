@@ -21,8 +21,10 @@ namespace web.Models
         public double assignment { get; set; }
         public double final_exam { get; set; }
         public int score_id { get; set; }
+        public Nullable<int> sub_id { get; set; }
     
         public virtual tbl_student tbl_student { get; set; }
         public virtual tbl_teacher tbl_teacher { get; set; }
+        public virtual tbl_subject tbl_subject { get; set; }
     }
 }

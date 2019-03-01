@@ -108,6 +108,12 @@
     <Content Include="css\login.css" />
     <Content Include="css\StudentSubject.css" />
     <Content Include="css\style.css" />
+    <Content Include="img\53030588_2194200284130616_2744097293094354944_n.jpg" />
+    <Content Include="img\53046552_993716401017289_2188508638740480000_n.jpg" />
+    <Content Include="img\Artboard – 1.png" />
+    <Content Include="img\Artboard – 2.png" />
+    <Content Include="img\Artboard – 3.png" />
+    <Content Include="img\Artboard – 4.png" />
     <Content Include="img\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\50268143_137652897187892_8225487598819213312_n.png" />
@@ -166,6 +172,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AttandanceController.cs" />
+    <Compile Include="Controllers\Homework_AssignmentController.cs" />
     <Compile Include="Controllers\ScoreController.cs" />
     <Compile Include="Controllers\SubjectChapterLessonController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -178,7 +185,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\fn_get_att_Result.cs">
+    <Compile Include="Models\fn_get_att1_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_get_chapter_lesson1_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\fn_get_chapter_lesson_Result.cs">
@@ -274,6 +284,7 @@
     <Content Include="Views\tbl_score\Details.cshtml" />
     <Content Include="Views\tbl_score\Edit.cshtml" />
     <Content Include="Views\tbl_score\Index.cshtml" />
+    <Content Include="Views\Homework_Assignment\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

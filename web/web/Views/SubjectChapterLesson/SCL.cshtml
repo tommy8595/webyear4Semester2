@@ -1,5 +1,6 @@
 ﻿@model System.Data.DataTable
 @using System.Data;
+@using System.Globalization;
 @{
     Layout = null;
 }
@@ -21,14 +22,14 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="~/css/style.css">
     <title>Document</title>
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="@Url.Action("Menu", "Menu")">
             <img src="img/logo1.png" alt="" height="90px" width="190px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -37,17 +38,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Subject <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Subject", "Subject")">Subject <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Schedule</a>
+                    <a class="nav-link" href="@Url.Action("Schedule", "Schedule")">Schedule</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Homework_Assignment")">Assignment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Assignment</a>
+                    <a class="nav-link" href="@Url.Action("Index", "Attandance")">Attendance</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Attendance</a>
+                    <a class="nav-link" href="@Url.Action("Index", "Score")">Score</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Main", "Main")'">Logout</button>
                 </li>
             </ul>
         </div>
@@ -55,9 +61,9 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Library</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data</li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Menu", "Menu")">Home</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Subject", "Subject")">Menu</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Lesson</li>
         </ol>
     </nav>
 
@@ -70,15 +76,17 @@
             <div class="col-md-8">
                 <div class="row teacherContent">
                     <div class="col-md-4 imageCenter">
-                        <img src="https://gazettereview.com/wp-content/uploads/2017/02/college-professor.jpg" alt=""
+                        <img src="@Model.Rows[Model.Rows.Count - 1]["tea_picture"].ToString()" alt=""
                              class="img-fluid img-border-radius">
                     </div>
+                    @{int av = DateTime.Now.Year - (DateTime.Parse(Model.Rows[Model.Rows.Count - 1]["tea_dob"].ToString())).Year; }
                     <div class="col-md-8">
-                        <p><b>@Model.Rows[Model.Rows.Count - 1]["tea_name"].ToString()</b></p>
-                        <p>@Model.Rows[Model.Rows.Count - 1]["tea_email"].ToString()</p>
-                        <p><span>Age: 30</span> <span>Sex: @Model.Rows[Model.Rows.Count - 1]["tea_gender"].ToString()</span></p>
-                        <p>Date of birth: @Model.Rows[Model.Rows.Count - 1]["tea_dob"].ToString()</p>
-                        <p>Address: @Model.Rows[Model.Rows.Count - 1]["tea_address"].ToString()</p>
+                        <p><b>Name&nbsp;:@Model.Rows[Model.Rows.Count - 1]["tea_name"].ToString()</b></p>
+                        <p>Email&nbsp;:@Model.Rows[Model.Rows.Count - 1]["tea_email"].ToString()</p>
+                        <p>Age&nbsp;:  @av</p>
+                        <p>Sex&nbsp;: @Model.Rows[Model.Rows.Count - 1]["tea_gender"].ToString()</p>
+                        <p>Date of birth&nbsp;@DateTime.Parse(Model.Rows[Model.Rows.Count - 1]["tea_dob"].ToString()).ToShortDateString()</p>
+                        <p>Address&nbsp;: @Model.Rows[Model.Rows.Count - 1]["tea_address"].ToString()</p>
                     </div>
                 </div>
             </div>
@@ -96,8 +104,10 @@
                     <!--Drop Box 01-->
                     @{
                         int n = 0;
-                        int order =0;
-                        int ch_order=1;
+                        int order = 0;
+                        int m = 0;
+                        int co = 1;
+
                         do
                         {
                             int v1; int v2;
@@ -105,22 +115,31 @@
                             v1 = int.Parse(Model.Rows[n]["chap_id"].ToString());
                             if (Model.Rows[n + 1]["chap_id"].ToString() == string.Empty)
                             {
-                       <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">
-                                    CHAPTER @ch_order : @Model.Rows[order]["chap_name"].ToString()
-                                </button>
-                            </h2>
-                        </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne_@n.ToString()"
+                                                    aria-expanded="true" aria-controls="collapseOne">
+                                                <!--klang download-->
+                                                    CHAPTER @co :        @Model.Rows[order]["chap_name"].ToString()
+                                                
+                                            </button>
+                                        </h2>
+                                    </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                                @Model.Rows[order]["chap_description"].ToString()
-                            </div>
-                        </div>
-                    </div>
+                                    <div id="collapseOne_@n.ToString()" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            @{ for (int i = m; i <= n; i++)
+                                                {
+
+                                                    <div><b>Lession @(i + 1):</b> @Model.Rows[i]["les_name"].ToString(); <br /></div>
+
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                co++;
                                 break;
                             }
                             else
@@ -132,41 +151,55 @@
                                 <div class="card">
                                     <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
-                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsTwo"
-                                                    aria-expanded="true" aria-controls="collapseTwo">
-                                                CHAPTER @ch_order : @Model.Rows[order]["chap_name"].ToString()
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo_@n.ToString()"
+                                                    aria-expanded="true" aria-controls="collapseTwo_@n.ToString()">
+                                                <a href="@Model.Rows[order]["chap_file_path_pdf"].ToString()" download>
+                                                    CHAPTER @co :        @Model.Rows[order]["chap_name"].ToString()
+                                                </a>
                                             </button>
                                         </h2>
                                     </div>
-
-                                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <!--id="Model.Rows[order]["les_file_path_video"].ToString()" onclick="change_video()"-->
+                                    <div id="collapseTwo_@n.ToString()" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                         <div class="card-body">
-                                           @Model.Rows[order]["chap_description"].ToString()
+                                            @{
+                for (int i = m; i <= n; i++)
+                {
+
+                                <div>Lesson @(i + 1): @Model.Rows[i]["les_name"].ToString() <br /></div>
+if (v1 != int.Parse(Model.Rows[i + 1]["chap_id"].ToString())) { m = n + 1; break; }
+}
+                                            }
                                         </div>
                                     </div>
                                 </div>
                                 n++;
                                 order++;
-                                ch_order++;
+                                co++;
+
                             }
 
                             else if (int.Parse(Model.Rows[n]["chap_id"].ToString()) == int.Parse(Model.Rows[n + 1]["chap_id"].ToString()))
                             {
                                 n++;
                                 order++;
-                                ch_order++;
-
                             }
                         } while (n < Model.Rows.Count - 2);
                     }
-                   
+
                 </div>
             </div>
+            @*<script>
+                function change_video(id) {
+                    var a = document.getElementById("video");
 
+                    a.src = id;
+                }
+            </script>*@
             <div class="col-sm-12 col-md-12 col-lg-7">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-                            allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" src="@Model.Rows[0]["les_file_path_video"].ToString()"
+                            allowfullscreen id="video"></iframe>
                 </div>
             </div>
         </div>
@@ -205,7 +238,7 @@
                 </div>
             </div>
             <div class="footer-copyright text-center py-3">
-                <span>2018 Â© Royal University of Phnom Penh</span>
+                <span>2018 © Royal University of Phnom Penh</span>
             </div>
         </center>
     </footer>

@@ -33,7 +33,7 @@ namespace web.Controllers
                     foreach (var item in tbl_schedule)
                     {
                         if (Session[item.tbl_subject.sub_name.ToString()] == null)
-                            Session.Add(item.tbl_subject.sub_name.ToString(), item.tbl_subject.sub_id);
+                            Session.Add(item.tbl_subject.sub_name.ToString(), item.tbl_teacher.tea_id.ToString());
                     }
                     return RedirectPermanent(Url.Action("Menu", "Menu"));
                 }
@@ -47,12 +47,13 @@ namespace web.Controllers
             {
                 Response.Write(ex.Message);
             }
-           
-        
+
+
             //session
-           
-            
+
+
             return View();
+
         }
     }
 }

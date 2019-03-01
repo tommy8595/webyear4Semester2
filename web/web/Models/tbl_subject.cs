@@ -21,6 +21,7 @@ namespace web.Models
             this.tbl_chapter = new HashSet<tbl_chapter>();
             this.tbl_homework = new HashSet<tbl_homework>();
             this.tbl_schdedule = new HashSet<tbl_schdedule>();
+            this.tbl_score = new HashSet<tbl_score>();
         }
     
         public int sub_id { get; set; }
@@ -36,5 +37,7 @@ namespace web.Models
         public virtual ICollection<tbl_homework> tbl_homework { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_schdedule> tbl_schdedule { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_score> tbl_score { get; set; }
     }
 }

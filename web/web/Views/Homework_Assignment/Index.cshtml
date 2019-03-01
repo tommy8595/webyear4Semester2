@@ -1,10 +1,7 @@
-﻿@model IEnumerable<web.Models.tbl_score>
+﻿@model System.Data.DataTable
+@using System.Data
 @{
     Layout = null;
-}
-@using web.Models;
-@{
-    web_projectEntities db = new web_projectEntities();
 }
 
 <!DOCTYPE html>
@@ -26,22 +23,12 @@
           crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/style.css">
     <title>Document</title>
-    @*<script type="text/javascript">
-            function scoreOOAD() {
-                var f;
-                @{
-                    var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id select sc;
-                }
-                var table_data = "<tr><th>Attendance</th><th>Assignment</th><th>Homework</th><th>Final Exam</th></tr><tr><td>" + @_queryScore.SingleOrDefault().attandance + "</td><td>"+@_queryScore.SingleOrDefault().assignment +"</td><td>"+@_queryScore.SingleOrDefault().homework+"</td><td>"+@_queryScore.SingleOrDefault().final_exam+"</td></tr>";
-                document.getElementById('table_score').innerHTML = table_data;
-            }
-        </script>*@
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="@Url.Action("Menu","Menu")">
             <img src="~/img/logo1.png" alt="" height="90px" width="190px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -73,98 +60,116 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="../Menu/Menu">Menu</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Menu","Menu")">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Assignment&Homework</li>
         </ol>
     </nav>
-
     <div class="container">
         <!-- subject -->
         <div class="row">
             <div class="col ">
                 <div class="">
                     <a href="#">
-                        <button class="btn btn-primary scoreBack" name="btnSub" onclick="location.href='@Url.Action("OOAD","Score")'">OOAD</button>
+                        <button class="btn btn-primary scoreBack" name="btnSub" onclick="location.href='@Url.Action("OOAD","Homework_Assignment")'">OOAD</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
                     <a href="#">
-                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("WEB","Score")'">WEB</button>
+                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("WEB","Homework_Assignment")'">WEB</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
                     <a href="#">
-                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("SE","Score")'">SE</button>
+                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("SE","Homework_Assignment")'">SE</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
                     <a href="#">
-                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("Linux","Score")'">Linux</button>
+                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("Linux","Homework_Assignment")'">Linux</button>
                     </a>
                 </div>
             </div>
             <div class="col ">
                 <div class="">
                     <a href="#">
-                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("MIS","Score")'">MIS</button>
+                        <button class="btn btn-primary scoreBack" onclick="location.href='@Url.Action("MIS","Homework_Assignment")'">MIS</button>
                     </a>
                 </div>
             </div>
         </div>
         <!-- end subject -->
-        <!-- score -->
-        <table class="table" id="table_score">
-            <tr>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.attandance)*@
-                    Attendance
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.homework)*@
-                    Homework
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.assignment)*@
-                    Assignment
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.final_exam)*@
-                    Final Exam
-                </th>
-            </tr>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.attandance)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.homework)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.assignment)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.final_exam)
-                    </td>
-                    @*<td>
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                        </td>*@
-                </tr>
-            }
-
-        </table>
-        @*@Session["ooad"].ToString()*@
-        <!-- end score -->
+        <div class="row" style="margin-bottom: 8.7em;">
+            <!-- homework -->
+            <div class="col-md-2 homework_title">
+                <p>Homework</p>
+            </div>
+            <div class="col-md-12 homework_par">
+                <div class="row">
+                    <div class="col-md-2 date_line_hw">
+                        <p>@*12/11/2018*@</p>
+                    </div>
+                    <div class="col-md-10 topic_hw">
+                        @if (Model != null)
+                        {
+                            foreach (System.Data.DataRow row in Model.Rows)
+                            {
+                                //foreach (var cell in row.ItemArray)
+                                //{
+                                //    if (cell != null)
+                                //    {
+                                if (row[0].ToString() == "homework")
+                                {
+                                    <div class="row">
+                                        <p>@row[1].ToString()</p>
+                                    </div>
+                                }
+                                //    }
+                                //}
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- end homework -->
+            <!-- assignment -->
+            <div class="col-md-2 homework_title">
+                <p>Assignment</p>
+            </div>
+            <div class="col-md-12 homework_par">
+                <div class="row">
+                    <div class="col-md-2 date_line_hw">
+                        <p>@*12/11/2018*@</p>
+                    </div>
+                    <div class="col-md-10 topic_hw">
+                        @if (Model != null)
+                        {
+                            foreach (System.Data.DataRow row in Model.Rows)
+                            {
+                                //foreach (var cell in row.ItemArray)
+                                //{
+                                //    if (cell != null)
+                                //    {
+                                if (row[0].ToString() == "assignment")
+                                {
+                                    <div class="row">
+                                        <p>@row[1].ToString()</p>
+                                    </div>
+                                }
+                                //    }
+                                //}
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- end assignment -->
+        </div>
     </div>
     <!--end content-->
     <!--footer-->
@@ -204,3 +209,4 @@
 </body>
 
 </html>
+

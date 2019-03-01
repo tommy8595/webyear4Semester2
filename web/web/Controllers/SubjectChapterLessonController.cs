@@ -7,19 +7,20 @@ using web.Models;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace web.Controllers
 {
     
     public class SubjectChapterLessonController : Controller
-    {
+    {  
         private web_projectEntities db = new web_projectEntities();
         // GET: Lesson
-        public ActionResult SCL(int subject_id=1, int teacher_id=2)
+        public ActionResult SCL(int subject_id, int teacher_id)
         {
             string q = "Data Source=.;Initial Catalog=web_project;Integrated Security=True";
             SqlConnection con = new SqlConnection(q);
             con.Open();
-            string qu = "select * from dbo.fn_get_chapter_lesson(" + subject_id + "," + teacher_id + ")";
+            string qu = "select * from dbo.fn_get_chapter_lesson(" + subject_id + "," + teacher_id + ") order by chap_id";
             SqlDataAdapter data = new SqlDataAdapter(qu, con);
             DataTable dt = new DataTable();
             data.Fill(dt);
@@ -32,9 +33,10 @@ namespace web.Controllers
             data = new SqlDataAdapter(qu, con);
             data.Fill(dt);
             ViewBag.teacher_description = dt.Rows[dt.Rows.Count - 1]["sub_description"].ToString();
-
+            
             con.Close();
             return View(dt);
         }
+      
     }
 }

@@ -49,11 +49,11 @@ namespace web.Controllers
         {
             try
             {
-                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where sc.stu_id == (int)Session["STU_ID"] && sc.tbl_teacher.tea_id == (int)Session["ooad"] select sc;
+                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where st.stu_id == (int)Session["STU_ID"] && sc.sub_id == 1 select sc;
                 scores = _queryScore.ToList();
                 return View("Index", scores);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 //Initialize when schedule ain't set;
                 score.attandance = 0;
@@ -69,7 +69,7 @@ namespace web.Controllers
         {
             try
             {
-                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where sc.stu_id == (int)Session["STU_ID"] && sc.tbl_teacher.tea_id == (int)Session["web"] select sc;
+                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where sc.stu_id == (int)Session["STU_ID"] && sc.sub_id == 2 select sc;
                 scores = _queryScore.ToList();
                 return View("Index", scores);
             }
@@ -89,11 +89,11 @@ namespace web.Controllers
         {
             try
             {
-                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where sc.stu_id == (int)Session["STU_ID"] && sc.tbl_teacher.tea_id == (int)Session["se"] select sc;
+                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where sc.stu_id == (int)Session["STU_ID"] && sc.sub_id == 3 select sc;
                 scores = _queryScore.ToList();
                 return View("Index", scores);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 //Initialize when schedule ain't set;
                 score.attandance = 0;
@@ -109,7 +109,7 @@ namespace web.Controllers
         {
             try
             {
-                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where sc.stu_id == (int)Session["STU_ID"] && sc.tbl_teacher.tea_id == (int)Session["linux"] select sc;
+                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where sc.stu_id == (int)Session["STU_ID"] && sc.sub_id == 4 select sc;
                 scores = _queryScore.ToList();
                 return View("Index", scores);
             }
@@ -129,7 +129,7 @@ namespace web.Controllers
         {
             try
             {
-                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where sc.stu_id == (int)Session["STU_ID"] && sc.tbl_teacher.tea_id == (int)Session["mis"] select sc;
+                var _queryScore = from sc in db.tbl_score.ToList() join st in db.tbl_student.ToList() on sc.stu_id equals st.stu_id where sc.stu_id == (int)Session["STU_ID"] && sc.sub_id == 5 select sc;
                 scores = _queryScore.ToList();
                 return View("Index", scores);
             }
